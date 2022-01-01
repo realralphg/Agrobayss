@@ -1,6 +1,6 @@
-# Agrobays (agrobayss)
+# agrobase (agrobase)
 
-Agrobays is an advanced agro based company which seek to promote advanced farming system throughout Africa and improve lives and livelihoods through Agric Technology.
+agrobase project
 
 ## Install the dependencies
 ```bash
