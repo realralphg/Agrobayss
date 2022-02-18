@@ -7,9 +7,10 @@
       >
         What we do
       </h2>
-      <p class="text-center q-pb-lg q-mb-xl">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae
-        inventore eligendi adipisci.
+      <p class="text-center q-pb-lg q-px-lg q-mb-xl">
+        To deliver a community of modern agric and agribusiness enthusiasts, 
+        we have divided our operations into 3 main categories, under which all 
+        our operations are classsified.
       </p>
       <div class="cards">
         <div class="card">

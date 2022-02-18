@@ -12,29 +12,28 @@
         >
           <q-tab name="mails" label="Our Vision" />
           <q-tab name="alarms" label="Our Mission" />
-          <q-tab name="movies" label="Our Core Values" />
+          <q-tab name="movies" label="Our Values" />
         </q-tabs>
 
         <q-tab-panels v-model="tab" animated class="bg-secondary text-positive">
           <q-tab-panel name="mails">
             <!-- <div class="text-h6">Mails</div> -->
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-            quo blanditiis laboriosam dolorem voluptatibus est deleniti eos
-            temporibus, sapiente et.
+            Attractive agriculture for everyone which leverages technology 
+            and mechanization for improved productivity and economic prosperity.
           </q-tab-panel>
 
           <q-tab-panel name="alarms">
             <!-- <div class="text-h6">Alarms</div> -->
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-            saepe corrupti nostrum, deserunt quis quidem accusamus qui. Quaerat,
-            id necessitatibus.
+           Promote technology driven and mechanized farming for informed decision making 
+           to mitigate risk and improve yield.
           </q-tab-panel>
 
           <q-tab-panel name="movies">
             <!-- <div class="text-h6">Movies</div> -->
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil
-            cumque tenetur reprehenderit cupiditate modi quas voluptate magni
-            illo sapiente quidem!
+            People <br>
+            Innovation <br>
+            Abundance <br>
+            Strategy <br>
           </q-tab-panel>
         </q-tab-panels>
       </q-card>

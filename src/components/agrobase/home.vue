@@ -10,8 +10,8 @@
         </h2>
 
         <p style="font-size: 20px" class="text-body1 text-secondary q-mt-lg">
-          Agrofarm provides farms, private foresters, <br />
-          and agricultural producers with online services.
+          21st Century Agriculture. <br />
+          Exploring agriculture with technology and mechanization.
         </p>
 
         <div class="input-email q-mt-lg">
@@ -44,11 +44,11 @@
           </div></q-btn
         >
 
-        <q-btn to="/agroinvest">
+        <!-- <q-btn to="/agroinvest">
           <div class="box">
             <p>AgroInvest</p>
           </div>
-        </q-btn>
+        </q-btn> -->
       </div>
     </div>
 

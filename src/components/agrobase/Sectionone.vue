@@ -6,16 +6,23 @@
           style="font-size: 40px"
           class="text-h3 q-my-md text-weight-bold text-primary"
         >
-          Select a plan
+          Beyond Traditional Agriculture
         </h2>
-        <h5 class="text-body1 text-positive q-mt-lg">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </h5>
 
         <p style="font-size: 20px" class="text-body1 text-positive q-mt-lg">
-          Viverra ut potenti aliquam feugiat dui imperdiet laoreet tempus
-          sed.Elit cursus est lorem in est id nec. Quis diam posuere at nisl
-          eget turpis sagittis nunc. Sagittis erat nunc in parturient.
+         We are changing the face of agriculture in Africa! <br><br>
+         Many young Africans see farming as a mundane practice because of the traditional ways 
+         of farm cultivation using hand tools. We are making farming and farm products attractive to 
+         the young African population through the infusion of technology and mechanization. Agrobay's 
+         AgroFoods specializes in the delivery of well-packaged food items and vegetables to subscribers; 
+         AgroFarms cultivates a variety of crops through high-tech and mechanized farming across Nigeria 
+         and also leverage small holder farmers in an outgrowers scheme; The AgroTech arm focuses on 
+         Agric Technologies which includes drone technologies for application of herbicides, irrigation and 
+         survellance; Farm Riskbay, which forcasts the viability of crops to be farmed in a given geography;
+         Farm Accesbay, a platform which provides access to buyers of farm products, as well as resources 
+         such as; warehouses, tractors, fertilizers, herbicides, labour farm technology; Farm Trackbay helps
+         project managers track farm activities from anywhere, from onboarding to conclusion.
+
         </p>
         <div class="btns">
           <button class="text-secondary btn">Get started</button>
