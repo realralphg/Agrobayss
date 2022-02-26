@@ -6,11 +6,11 @@
           style="font-size: 40px"
           class="text-h3 q-my-lg text-weight-bold text-secondary"
         >
-          Select a plan
+          Select a plan.
         </h2>
 
         <p style="font-size: 20px" class="text-body1 text-secondary q-mt-lg">
-          Choose a comfortable plan of your choice, from #300, #500 or#1000
+          Choose a comfortable plan, from N300, N500 orN1000
           daily... You can even save for several days at once.
         </p>
 

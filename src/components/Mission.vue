@@ -19,38 +19,23 @@
         <div class="mark">
           <div class="mark-items">
             <i class="fas fa-check"></i>
-            <span
-              >Our platform is user friendly, efficient and super reliable
-              done.</span
-            >
+            <span>Our platform is user friendly, efficient and reliable.</span>
           </div>
           <div class="mark-items">
             <i class="fas fa-check"></i>
-            <span
-              >Our platform is user friendly, efficient and super reliable
-              done.</span
-            >
+            <span>Saving petty cash over a period of time makes good feeding affordable.</span>
           </div>
           <div class="mark-items">
             <i class="fas fa-check"></i>
-            <span
-              >Our platform is user friendly, efficient and super reliable
-              done.</span
-            >
+            <span>Getting a Food Bag after 30days of small savings is exciting.</span>
           </div>
           <div class="mark-items">
             <i class="fas fa-check"></i>
-            <span
-              >Our platform is user friendly, efficient and super reliable
-              done.</span
-            >
+            <span>A planned and controlled feeding system is the new normal.</span>
           </div>
           <div class="mark-items">
             <i class="fas fa-check"></i>
-            <span
-              >Our platform is user friendly, efficient and super reliable
-              done.</span
-            >
+            <span>With this plan you can save to feed friends and family.</span>
           </div>
         </div>
       </div>

@@ -10,8 +10,10 @@
         </h2>
 
         <p style="font-size: 20px" class="text-body1 text-positive q-mt-lg">
-          Choose a comfortable plan of your choice, from #300, #500 or#1000
-          daily... You can even save for several days at once.
+          Agrobays has various livestock farms of small rumnants, piggery, poultry 
+          and cattles that are grown for meat, diary, eggs and leather. Our patnership
+          with global agric institutioins has helped us maintain international best 
+          practices and a constant remarkable high productivity.
         </p>
 
         <button class="bg-secondary text-primary btn btn-white">

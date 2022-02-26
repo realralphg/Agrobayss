@@ -6,7 +6,7 @@
           style="font-size: 40px"
           class="text-h3 q-my-lg text-weight-bold text-secondary"
         >
-          Get Food
+          Get Food Bag
         </h2>
 
         <p style="font-size: 20px" class="text-body1 text-secondary q-mt-lg">

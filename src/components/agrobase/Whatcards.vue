@@ -9,7 +9,7 @@
       </h2>
       <p class="text-center q-pb-lg q-px-lg q-mb-xl">
         To deliver a community of modern agric and agribusiness enthusiasts, 
-        we have divided our operations into 3 main categories, under which all 
+        we have divided our operations into three main categories, under which all 
         our operations are classsified.
       </p>
       <div class="cards">
@@ -19,8 +19,9 @@
 
           <h4>AgroFoods</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-            voluptates odit aliquid deserunt molestiae odio?
+            Whether you are a student, a civil servant or self-employed, AgroFoods 
+            helps you save a penny for a pound of food. Get weekly deliveries of the best fruits 
+            and vegetables grown in hydroponics and monthly deliveries of well-sorted foodbags.
           </p>
           <div class="learn"><button class="btn btn-white">Visit</button></div>
         </div>
@@ -30,8 +31,9 @@
 
           <h4>AgroFarms</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-            voluptates odit aliquid deserunt molestiae odio?
+            At AgroFarms, we leverage cutting-edge technologies and engineering to farm in a 
+            unique way that makes farming attractive. Thousands of small holder farmers find fulfilment 
+            being part of an outgrowers scheme that improves their farming experience.
           </p>
           <div class="learn"><button class="btn btn-white">Visit</button></div>
         </div>
@@ -41,13 +43,14 @@
 
           <h4>AgroTech</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-            voluptates odit aliquid deserunt molestiae odio?
+            Innovative agriculture is at the center of all we do at Agrobays, which is why we 
+            re-invest more than a quarter of our revenue on research and development. We are constantly 
+            re-defining modern farming to be more attractive, predictable, sustainable and affordable.
           </p>
           <div class="learn"><button class="btn btn-white">Visit</button></div>
         </div>
-        <div class="card">
-          <!-- <img src="/images/investment.png" alt="" /> -->
+        <!-- <div class="card">
+          <img src="/images/investment.png" alt="" />
           <i class="ri-bar-chart-line"></i>
           <h4>AgroInvest</h4>
           <p>
@@ -55,7 +58,7 @@
             voluptates odit aliquid deserunt molestiae odio?
           </p>
           <div class="learn"><button class="btn btn-white">Visit</button></div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

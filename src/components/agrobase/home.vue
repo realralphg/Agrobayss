@@ -3,10 +3,10 @@
     <div class="row align-c text-c show container">
       <div class="col-md-6 lef col-sm-12 col-xs-12">
         <h2
-          style="font-size: 40px"
+          style="font-size: 50px"
           class="text-h3 q-my-lg text-weight-bold text-secondary"
         >
-          AgroBays
+          Agrobays
         </h2>
 
         <p style="font-size: 20px" class="text-body1 text-secondary q-mt-lg">

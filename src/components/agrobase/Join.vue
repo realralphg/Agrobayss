@@ -5,7 +5,7 @@
         style="font-size: 40px"
         class="text-h3 q-my-md text-center text-weight-bold text-primary"
       >
-        Join Our Farmers Community
+        Join Our Community of Farmers
       </h2>
       <!-- <p class="text-center q-pb-lg q-mb-xl">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae
@@ -19,8 +19,7 @@
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12">
         <p style="font-size: 20px" class="text-body1 text-positive q-my-xl">
-          To be a member of our community either as an investor or farmer sign
-          up
+          To be a member of our community sign up
         </p>
         <div class="input-wrap">
           <label class="text-primary" for="">Full Name</label> <br />

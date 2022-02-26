@@ -11,12 +11,9 @@
       style="font-size: 17px"
       class="text-positive q-px-xl text-center text-body1"
     >
-      Let's take your feeding to a higher level! Healthy eating routine just got
-      easier with Agrobays. <br />
-      You can ensure that your family and relatives are part of a planned food
-      saving scheme <br />
-      which in turn ensures that good and affordable food items are delivered
-      every 30days.
+      Our plans are tailored to help various class of earners find satisfaction using our service.
+      Whether you are a low, medium or high income earner, you can choose a package that fits 
+      your pocket and enjoy your harvest in 30days.
     </p>
 
     <div class="row align-c text-c q-pt-xl container">

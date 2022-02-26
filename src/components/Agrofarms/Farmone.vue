@@ -10,8 +10,13 @@
         </h2>
 
         <p style="font-size: 20px" class="text-body1 text-positive q-mt-lg">
-          Choose a comfortable plan of your choice, from #300, #500 or#1000
-          daily... You can even save for several days at once.
+          Our ginger, situated across southern Kaduna, Nothern Nigeria is well-priced because 
+          of its flavour and neatness. We ensure
+          that our yields are Aflatoxin free and this has secured access to global markets 
+          and create demands from more global regions. <br> <br>
+
+          Premium pre and post harvest handlng of the produce presents us a Grade-A product, 
+          which are marketed as wet or dry ginger.
         </p>
 
         <button class="bg-secondary text-primary btn btn-white">

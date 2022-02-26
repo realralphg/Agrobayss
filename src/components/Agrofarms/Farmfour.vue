@@ -14,8 +14,9 @@
           </h2>
 
           <p style="font-size: 20px" class="text-body1 text-positive q-mt-lg">
-            Choose a comfortable plan of your choice, from #300, #500 or#1000
-            daily... You can even save for several days at once.
+            As a great source of protein for plants animals, we grow soybeans in large 
+            quantity mainly for local markets. We farm for various production plants on 
+            demand and supply quality, well sorted and bagged products to our clients.
           </p>
 
           <button class="bg-secondary text-primary btn btn-white">

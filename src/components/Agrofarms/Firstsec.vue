@@ -8,10 +8,18 @@
         >
           Select a plan
         </h2> -->
+          <h2
+            style="font-size: 30px"
+            class="text-primary text-weight-bold"
+          >
+            All Inclusive Farming
+          </h2>
 
-        <p style="font-size: 20px" class="text-body1 text-positive q-mt-lg">
-          Choose a comfortable plan of your choice, from #300, #500 or#1000
-          daily... You can even save for several days at once.
+        <p style="font-size: 20px" class="text-body1 text-positive">
+          As part of our community sensitization program, we continuously advocate 
+          for women to farm alongside men for an all-inclusive economic development. <br> <br>
+          Agrobays is largely a women-driven farming community and this is quite unique because the level
+          of innovation that breeds excellence and constant annual productivety.
         </p>
 
         <!-- <button class="text-secondary btn">Get started</button> -->

@@ -7,9 +7,9 @@
     <Agro />
     <Institutions />
     <Join />
-    <Invest />
+    <!-- <Invest /> -->
     <Contact />
-    <Sponsors />
+    <!-- <Sponsors /> -->
 
     <Footer />
   </q-page>

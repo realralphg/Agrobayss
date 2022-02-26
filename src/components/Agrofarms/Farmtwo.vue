@@ -14,8 +14,9 @@
           </h2>
 
           <p style="font-size: 20px" class="text-body1 text-secondary q-mt-lg">
-            Choose a comfortable plan of your choice, from #300, #500 or#1000
-            daily... You can even save for several days at once.
+            As a well consumed staple food in Nigeria, we have over 500 hectares of rice farms
+            where mechanized large scale farming is practiced. We also run an outgrowers
+            scheme in rice production to help farmers get premium value for the efforts.
           </p>
 
           <button class="bg-secondary text-primary btn btn-white">

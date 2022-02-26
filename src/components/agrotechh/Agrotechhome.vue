@@ -10,9 +10,8 @@
         </h2>
 
         <p style="font-size: 25px" class="text-body1 text-secondary q-mt-lg">
-          Amazing how little drops of water make <br />
-          a mighty ocean? Get food every 30days <br />
-          you never knew you were saving for!
+          Our passion is modern agriculture in unparallelled space. <br>
+          We are constantly redefining farming and improving rural farming practice.
         </p>
 
         <button class="text-secondary btn">Create an Account</button>

@@ -23,20 +23,28 @@
 
         <p style="font-size: 20px" class="text-body1 text-positive q-mt-lg">
           Amazing how little drops of water make <br />
-          a mighty ocean? Get food every 30days <br />
+          a mighty ocean? Get a <span class="text-primary text-bold">Food Bag</span> every 30days <br />
           you never knew you were saving for!
         </p>
 
         <div class="input-email q-mt-lg">
           <div class="input q-px-lg">
-            <input placeholder="Enter your email" type="text" />
-            <button class="text-secondary">Start Saving</button>
+            <input placeholder="Enter your email " type="text" />
+            <button class="text-secondary">Start Saving </button>
           </div>
-        </div>
+        </div>           
       </div>
       <div class="col col-md-6 col-sm-12 col-xs-12">
         <img class="img" src="/images/group.png" />
       </div>
+
+      <div>
+        <div style="font-size: 20px" class="text-body1 text-positive q-mt-lg">
+          Book weekly delivery of the best
+          <span class="text-primary text-bold q-mr-md"> Fruits & Veggies</span>    
+          <button class="text-secondary btn">Fruits & Veggies </button>     
+        </div>           
+      </div>         
     </div>
 
     <!-- <div class="row">
@@ -111,6 +119,14 @@ h5 {
   width: 90%;
 }
 
+  .btn {
+  border: none;
+  background: linear-gradient(121.81deg, #ca7c06 20.1%, #fcb64e 131.87%);
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin: 0.55rem 0;
+}
+
 @media (max-width: 400px) {
   .input-email .input {
     padding: 0.75rem;
@@ -146,5 +162,6 @@ h5 {
   .input-email input {
     width: 50%;
   }
+
 }
 </style>

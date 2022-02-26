@@ -8,26 +8,28 @@
         Institutions we serve
       </h2>
       <p class="text-center q-pb-lg q-mb-xl">
-        Understanding how Agrobays works
+        We serve a plethora of instutions across Nigeria and our services are tailored 
+        objectively to meet the unique demands of every client we engage. From private to 
+        public institutions, our services carries a mark of excellence and exclusivity.
       </p>
       <div class="cards">
         <div class="card">
-          <h1 class="text-weight-bold">50k+</h1>
+          <h1 class="text-weight-bold">100k+</h1>
           <i class="ri-user-line"></i>
           <p class="text-primary">Private</p>
         </div>
         <div class="card">
-          <h1 class="text-weight-bold">600+</h1>
+          <h1 class="text-weight-bold">200+</h1>
           <i class="ri-building-line"></i>
-          <p class="text-primary">Companies</p>
+          <p class="text-primary">Public</p>
         </div>
         <div class="card">
-          <h1 class="text-weight-bold">100+</h1>
+          <h1 class="text-weight-bold">50+</h1>
           <i class="ri-team-fill"></i>
-          <p class="text-primary">Corperatives</p>
+          <p class="text-primary">Cooperatives</p>
         </div>
         <div class="card">
-          <h1 class="text-weight-bold">5+</h1>
+          <h1 class="text-weight-bold">10+</h1>
           <i class="ri-government-line"></i>
           <p class="text-primary">Government</p>
         </div>

@@ -3,12 +3,10 @@
     <h2 class="q-pa-md text-primary text-weight-bold text-center">
       Innovative Farming Experience
     </h2>
-    <p style="font-size: 18px" class="text-center">
-      Viverra ut potenti aliquam feugiat dui imperdiet <br />
-      laoreet tempus sed.Elit cursus est lorem in est id nec. <br />
-      Quis diam posuere at nisl eget turpis <br />
-      sagittis nunc. Sagittis erat nunc in parturient.
-    </p>
+      We offer a wide range of technology services to individuals and agribusiness 
+      organizations ranging from training, agric drone technology, survellance, 
+      farm tracking, crop performance, forecasting and a platform for farmers to 
+      engange and access resources. 
   </div>
 </template>
 

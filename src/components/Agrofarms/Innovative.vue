@@ -7,6 +7,7 @@
       We Enjoy Farming.
     </h2>
     <p style="font-size: 18px" class="text-center q-pa-lg text-positive">
+      We farm and train farmers on modern farming practices. <br>
       Our farms are widespread across Nigeria and batched in 50 to 100 hectares
       in size, <br />
       farming Ginger, Soybeans, Rice and Livestock. We also engage Small Holder

@@ -13,8 +13,8 @@
     <Farmfour />
   </div>
   <Join />
-  <Invest />
-  <Sponsors />
+  <!-- <Invest /> -->
+  <!-- <Sponsors /> -->
 
   <Footer />
 </template>

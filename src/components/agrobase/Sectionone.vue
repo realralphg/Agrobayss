@@ -13,15 +13,15 @@
          We are changing the face of agriculture in Africa! <br><br>
          Many young Africans see farming as a mundane practice because of the traditional ways 
          of farm cultivation using hand tools. We are making farming and farm products attractive to 
-         the young African population through the infusion of technology and mechanization. Agrobay's 
-         AgroFoods specializes in the delivery of well-packaged food items and vegetables to subscribers; 
-         AgroFarms cultivates a variety of crops through high-tech and mechanized farming across Nigeria 
+         the young African population through the inclusion of technology and mechanization. <br> <br> 
+         Agrobays' AgroFoods specializes in the delivery of well-packaged food items and vegetables to subscribers; 
+         AgroFarms cultivates a variety of crops and livestocks through technology and mechanization across Nigeria 
          and also leverage small holder farmers in an outgrowers scheme; The AgroTech arm focuses on 
          Agric Technologies which includes drone technologies for application of herbicides, irrigation and 
          survellance; Farm Riskbay, which forcasts the viability of crops to be farmed in a given geography;
-         Farm Accesbay, a platform which provides access to buyers of farm products, as well as resources 
-         such as; warehouses, tractors, fertilizers, herbicides, labour farm technology; Farm Trackbay helps
-         project managers track farm activities from anywhere, from onboarding to conclusion.
+         Farm Accessbay, a platform which provides access to buyers of farm products, as well as resources 
+         such as; warehouses, tractors, fertilizers, herbicides, labour farm technology and Farm Trackbay which helps
+         farm project managers track farm activities anywhere, from onboarding to conclusion.
 
         </p>
         <div class="btns">

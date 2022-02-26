@@ -64,7 +64,7 @@
           </div>
         </div>
 
-        <div class="col-md-3 col-sm-12 col-xs-12 q-pt-md my-font-nav">
+        <!-- <div class="col-md-3 col-sm-12 col-xs-12 q-pt-md my-font-nav">
           <div class="text-body1 my-font-montserrat-light">Resources</div>
           <q-separator class="bg-secondary" style="width: 50%" />
           <div
@@ -93,7 +93,7 @@
           >
             FAQ
           </div>
-        </div>
+        </div> -->
         <div class="col-md-3 col-sm-12 col-xs-12 q-pt-md my-font-nav">
           <div class="text-body1 my-font-montserrat-light">Social Media</div>
           <q-separator class="bg-secondary" style="width: 50%" />
@@ -166,11 +166,11 @@
           <div class="text-body1 my-font-montserrat-light">Contact Info</div>
           <q-separator class="bg-secondary" style="width: 50%" />
           <div class="text-body2 my-font-montserrat-light q-mt-md">
-            31, Gwari Avenue, Barnawa, Kaduna, Nigeria.
+            #F6, Y.A. Ahmed House, Ahmadu Bello Way, Kaduna, Nigeria.
           </div>
           <div class="text-body2 q-mt-md my-font-montserrat-light">
             <span>Email: </span>
-            <span class="ttext-secondary">hi@agrobase.com</span>
+            <span class="ttext-secondary">hi@agrobays.com</span>
           </div>
           <!-- <div class="text-body2 q-mt-md my-font-montserrat-light">
               <span>Phone: </span>
@@ -180,7 +180,7 @@
       </div>
       <q-separator class="bg-grey-9 q-px-xl q-mt-xl" />
       <div class="text-caption text-secondary my-font-montserrat-light">
-        © 2021 Agrobase. All rights reserved.
+        © 2021 Agrobays. All rights reserved.
       </div>
       <div class="text-caption text-secondary my-font-montserrat-light">
         By Greysoft© Technologies.

@@ -24,16 +24,16 @@
 
           <q-tab-panel name="alarms">
             <!-- <div class="text-h6">Alarms</div> -->
-           Promote technology driven and mechanized farming for informed decision making 
-           to mitigate risk and improve yield.
+           Promote technology driven and mechanized farming to attract young farmers, 
+           improve accuracy in decision making, mitigate risk and improve yield.
           </q-tab-panel>
 
           <q-tab-panel name="movies">
             <!-- <div class="text-h6">Movies</div> -->
             People <br>
             Innovation <br>
-            Abundance <br>
             Strategy <br>
+            Abundance <br>            
           </q-tab-panel>
         </q-tab-panels>
       </q-card>

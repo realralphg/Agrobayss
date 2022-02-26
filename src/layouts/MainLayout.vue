@@ -40,14 +40,14 @@
             to="/agrotech"
             exact
           />
-          <q-route-tab
+          <!-- <q-route-tab
             label="AgroInvest"
             ripple
             no-caps
             class="gt-sm text-dark q-mx-sm"
             to="/agroinvest"
             exact
-          />
+          /> -->
         </q-tabs>
         <q-tabs class="login bg-negative" dense>
           <div class="log">
@@ -150,7 +150,7 @@
                   </q-item-section>
                 </q-item>
 
-                <q-item clickable v-close-popup>
+                <!-- <q-item clickable v-close-popup>
                   <q-item-section>
                     <q-item-label
                       ><q-btn
@@ -163,7 +163,7 @@
                         class="q-mx-sm"
                     /></q-item-label>
                   </q-item-section>
-                </q-item>
+                </q-item> -->
 
                 <q-item clickable v-close-popup>
                   <q-item-section>

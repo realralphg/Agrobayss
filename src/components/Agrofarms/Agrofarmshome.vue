@@ -13,8 +13,8 @@
           style="font-size: 25px"
           class="text-body1 text-center text-secondary q-mt-lg"
         >
-          Agrofarm provides farmers with lucrative opportunities <br />
-          and access to resources, local and international markets.
+          Our community of farmers are trained for best farming practice to<br />
+          leverage technology and mechanization for improved yield.
         </p>
 
         <div class="input-email q-mt-lg">
