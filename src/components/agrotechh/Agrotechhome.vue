@@ -58,7 +58,7 @@ export default {};
 .home {
   position: relative;
   height: 100vh;
-  background: url("/images/trac.jpg") center center/cover no-repeat;
+  background: url("/images/agrotech1.jpeg") center center/cover no-repeat;
   z-index: 1;
   background-blend-mode: multiply;
 }

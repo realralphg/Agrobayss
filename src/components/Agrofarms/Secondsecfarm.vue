@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-md q-mt-lg">
+  <div class="q-pa-md q-mt-lxl">
     <div class="top container">
       <div class="row flex align-c text-c">
         <div class="col col-md-6 col-sm-6 col-xs-12 q-pb-xl">

@@ -17,7 +17,7 @@
       <div class="col col-md-6 col-sm-12 col-xs-12 text-center">
         <img src="/images/join.png" />
       </div>
-      <div class="col-md-6 col-sm-12 col-xs-12">
+      <div class="col-md-6 q-px-lg col-sm-12 col-xs-12">
         <p style="font-size: 20px" class="text-body1 text-positive q-my-xl">
           To be a member of our community sign up
         </p>

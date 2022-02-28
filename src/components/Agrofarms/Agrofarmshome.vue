@@ -59,7 +59,7 @@ export default {};
 .home {
   position: relative;
   height: 100vh;
-  background: url("/images/ginger1.jpg") center center/cover no-repeat;
+  background: url("/images/agrofarm1.jpeg") center center/cover no-repeat;
   z-index: 1;
 }
 

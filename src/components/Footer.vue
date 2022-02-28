@@ -2,7 +2,7 @@
   <section>
     <div class="q-pa-xl bg-negative text-white">
       <div class="row footer-row">
-        <div class="col-md-3 col-sm-12 col-xs-12 q-pt-md my-font-nav">
+        <div class="col-md-4 col-sm-12 col-xs-12 q-pt-md my-font-nav">
           <div class="text-body1">About</div>
           <q-separator class="bg-secondary" style="width: 50%" />
           <div
@@ -94,7 +94,7 @@
             FAQ
           </div>
         </div> -->
-        <div class="col-md-3 col-sm-12 col-xs-12 q-pt-md my-font-nav">
+        <div class="col-md-4 col-sm-12 col-xs-12 q-pt-md my-font-nav">
           <div class="text-body1 my-font-montserrat-light">Social Media</div>
           <q-separator class="bg-secondary" style="width: 50%" />
           <div class="text-body2 q-mt-md cursor-pointer">
@@ -162,7 +162,7 @@
             >
           </div>
         </div>
-        <div class="col-md-3 col-sm-12 col-xs-12 q-pt-md my-font-nav">
+        <div class="col-md-4 col-sm-12 col-xs-12 q-pt-md my-font-nav">
           <div class="text-body1 my-font-montserrat-light">Contact Info</div>
           <q-separator class="bg-secondary" style="width: 50%" />
           <div class="text-body2 my-font-montserrat-light q-mt-md">

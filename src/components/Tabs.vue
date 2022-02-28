@@ -1,6 +1,6 @@
 <template>
   <div class="q-pa-md">
-    <div class="q-gutter-y-md container">
+    <div class="q-gutter-y-md griid container">
       <q-card>
         <q-tabs
           v-model="tab"
@@ -37,6 +37,11 @@
           </q-tab-panel>
         </q-tab-panels>
       </q-card>
+
+
+      <div class="img">
+        <img src="/images/va.png" alt="">
+      </div>
 
       <!-- <q-card>
         <q-tabs
@@ -92,7 +97,7 @@ export default {
 }
 .q-panel > div {
   height: 100%;
-  width: 40%;
+  width: 60%;
 }
 .q-card {
   box-shadow: none;
@@ -102,10 +107,38 @@ export default {
   position: relative;
 }
 
+
+.griid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5rem;
+  align-items: center;
+}
+
+
+.griid img{
+  object-fit: contain;
+  width: 400px;
+}
+
+.griid img{
+  animation: spin 4s infinite linearspin 4s infinite linear;
+    -webkit-animation: spin 20s infinite linear;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
 @media (max-width: 600px) {
   .q-panel > div {
     height: 100%;
     width: 100%;
   }
+
+  .griid{
+  grid-template-columns: 1fr;
+
+}
 }
 </style>

@@ -28,20 +28,16 @@
 
     <div class="boxes q-my-lg">
       <div class="boxes-wrap container">
-        <q-btn to="/agrofoods"
-          ><div class="box">
-            <p>AgroFoods</p>
-          </div></q-btn
+        <q-btn class="btn3" to="/agrofoods"
+          >AgroFoods</q-btn
         >
-        <q-btn to="/agrofarms"
-          ><div class="box">
-            <p>AgroFarms</p>
-          </div></q-btn
+
+        <q-btn class="btn3" to="/agrofoods"
+          >AgroFarms</q-btn
         >
-        <q-btn to="/agrotech"
-          ><div class="box">
-            <p>AgroTech</p>
-          </div></q-btn
+
+        <q-btn class="btn3" to="/agrofoods"
+          >AgroTech</q-btn
         >
 
         <!-- <q-btn to="/agroinvest">
@@ -68,7 +64,7 @@ export default {};
 .home {
   position: relative;
   height: 100vh;
-  background: url("/images/bays.jpg") center center/cover no-repeat;
+  background: url("/images/bay1.jpeg") center center/cover no-repeat;
   z-index: 1;
 }
 
@@ -155,6 +151,40 @@ h5 {
   align-items: center;
   margin: 0 !important;
   color: #fff;
+}
+
+.btn3{
+  color:#fff;
+
+  border:1px solid #fff; 
+  padding: .75rem 1.5rem;
+  margin:  3rem 1rem;
+   -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+  transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+}
+
+.btn3::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #000;
+  -webkit-transform: scaleX(.3);
+  transform: scaleX(.3);
+  opacity: 0;
+  transition: all .3s
+}
+.btn3:hover::before{
+  opacity: 1;
+  background-color: #8bc34a;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+  transition: -webkit-transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity .4s;
+  transition: transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity
 }
 
 @media (max-width: 500px) {
