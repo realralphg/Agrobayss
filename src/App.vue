@@ -103,6 +103,11 @@ li {
   padding: 0 !important;
 }
 
+
+.padd{
+    padding: 4rem 1rem !important;
+}
+
 input:focus {
   outline: none;
 }

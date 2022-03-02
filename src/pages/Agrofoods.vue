@@ -27,14 +27,14 @@
 </template>
 
 <script>
-import Hero from "../components/Hero.vue";
+import Hero from "../components/agrofood/Hero.vue";
 // import BBoxes from "../components/BBoxes.vue";
-import Firstsec from "../components/Firstsec.vue";
-import Secondsec from "../components/Secondsec.vue";
-import Thirdsec from "../components/Thirdsec.vue";
-import Mission from "../components/Mission.vue";
-import How from "../components/How.vue";
-import Plans from "../components/Plans.vue";
+import Firstsec from "../components/agrofood/Firstsec.vue";
+import Secondsec from "../components/agrofood/Secondsec.vue";
+import Thirdsec from "../components/agrofood/Thirdsec.vue";
+import Mission from "../components/agrofood/Mission.vue";
+import How from "../components/agrofood/How.vue";
+import Plans from "../components/agrofood/Plans.vue";
 import Subscribe from "../components/Subscribe.vue";
 import Contact from "../components/Contact.vue";
 import Footer from "../components/Footer.vue";

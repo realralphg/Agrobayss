@@ -39,7 +39,7 @@
     </div>
 
     <div class="button text-center">
-      <button class="btn">Register</button>
+      <q-btn to="/dashboard" class="btn">Login</q-btn>
     </div>
 
     <p class="text-positive text-center">

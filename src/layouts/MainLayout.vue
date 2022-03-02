@@ -1,6 +1,6 @@
 <template>
   <q-layout view="hHh lpR fFf">
-    <q-header reveal elevated class="bg-secondary text-white">
+    <q-header v-if="$router.currentRoute.value.path !== '/dashboard'" reveal elevated class="bg-secondary text-white">
       <q-toolbar>
         <q-toolbar-title>
           <img class="logo" src="/images/agrobase.png" />
