@@ -10,6 +10,9 @@ const routes = [
       { path: "/agrotech", component: () => import("pages/Agrotech.vue") },
       { path: "/login", component: () => import("src/pages/Login.vue") },
       { path: "/register", component: () => import("src/pages/Register.vue") },
+      { path: "/fruits", component: () => import("src/pages/Fruits.vue") },
+      { path: "/fruit", component: () => import("src/pages/Fruit.vue") },
+
       // { path: "/dashboard", component: () => import("src/pages/Dashboard/Dashboard.vue") },
     ],
   },
