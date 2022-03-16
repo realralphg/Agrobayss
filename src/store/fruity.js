@@ -1,31 +1,13 @@
 import axios from "axios"
 import { api } from 'boot/axios'
+import { useQuasar } from 'quasar'
 
 const state = {
     status: '',
     token: localStorage.getItem('token') || '',
-    user: {},
-    meal: {
-        id: '',
-        category: '',
-        des: '',
-        img: '',
-        name: '',
-        price: '',
-        quantity: '',
-        // amount: '',
-        // noOfPlates: '',
-        meals: []
-    },
-    topping: {
-        name: '',
-        price: '',
-        img: '',
-    },
-    plate: {
-        price: '',
-        noOfPlates: ''
-    }
+    user: null,
+    fruitsData : null,
+    categoriesData: null
 }
 
 const getters = {
@@ -35,38 +17,21 @@ const getters = {
     useer(state) {
         return state.user
     },
+    // isLoggedIn: state => state.token,
     isLoggedIn: state => state.token && state.user,
     authStatus: state => state.status,
+
+    fruits(state){
+        return state.fruitsData
+    },
+
+    categories(state){
+        return state.categoriesData
+    }
 }
 
 const mutations = {
-    setMeal(state, details) {
-        const { id, category, des, image, name, price, quantity, posts } = details
-        state.meal.id = id
-        state.meal.category = category
-        state.meal.des = des
-        state.meal.img = image
-        state.meal.name = name
-        state.meal.price = price
-        state.meal.quantity = quantity
-        state.meal.meals = posts
-        localStorage.setItem('det', JSON.stringify({ id, category, des, image, name, price, quantity, posts }))
-            // console.log(state.meal, 'muta');
-        console.log(state.meal.meals);
-    },
-    set_topping(state, payload) {
-        const { name, price, image } = payload
-        state.topping.name = name
-        state.topping.price = price
-        state.topping.img = image
-        localStorage.setItem('topping', JSON.stringify({ name, price, image }))
-    },
-    plate(state, payload) {
-        const { noOfPlates, amount } = payload
-        state.meal.noOfPlates = noOfPlates
-        state.meal.amount = amount
-        localStorage.setItem('plate', JSON.stringify({ noOfPlates, amount }))
-    },
+    
     auth_request(state) {
         state.status = 'loading'
     },
@@ -75,161 +40,150 @@ const mutations = {
         state.token = payload.token
         console.log(payload.user)
         state.user = payload.user
+        console.log(payload.user)
         // let puy = state.user.push(payload.user)
         // console.log(puy)
     },
-    auth_successre(state, payload) {
-        console.log(state, payload);
+    Fruits( state, payload){
+        console.log(payload)
+        state.fruitsData = payload.respData
     },
-    auth_error(state) {
-        state.status = 'error'
+
+    Categories( state, payload){
+        console.log(payload)
+        state.categoriesData = payload.respData
     },
     logout(state) {
         state.status = ''
         state.token = ''
+        localStorage.removeItem('vuex')
     },
-    menu_success(state, payload) {
-        state.status = 'success'
-        state.menus = payload.menus
-    },
-    menu_error(state) {
-        state.status = 'error'
-    },
-    order_request(state) {
-        state.status = 'placing order'
-    },
-    order_success(state, payload) {
-        state.status = payload.msg
-    },
-    order_error(state) {
-        state.status = "Error"
-    },
-    order_status(state) {
-        state.status = "Processing"
-    }
+    
 }
 
 
 const actions = {
-    // async signIn(_, details){
-    //     // let resp = await axios.post('http://aa75e59c5b52245f78bca84a87c33713-1730258908.us-east-1.elb.amazonaws.com/api/register', this.form).catch(err=> console.log(err.response.data))
-    //     let resp = await axios.post('http://aa75e59c5b52245f78bca84a87c33713-1730258908.us-east-1.elb.amazonaws.com/api/login', details).catch(err=> console.log(err.response.data))
-
-    //     console.log(resp);
-    // },
     login({ commit }, user) {
         return new Promise((resolve, reject) => {
             commit('auth_request')
-            api.post('api/login', user)
-                // axios({ url: 'http://greyfoods.test/api/login', data: user, method: 'POST' })
+            axios.post('https://agrobays.greysoft.com.ng/api/login', user)
                 .then(resp => {
-                    console.log(resp);
-                    const token = resp.data.data.token
-                    const user = resp.data.data.user
+                    console.log(resp.data.response.user, resp.data.token);
+                    const token = resp.data.token
+                    const user = resp.data.response.user
                     console.log(token);
 
                     localStorage.setItem('token', token)
                     localStorage.setItem('userdet', JSON.stringify(user))
-                    console.log(localStorage.getItem('token'));
+                    // console.log(localStorage.getItem('token'));
                     axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
                     commit('auth_success', { token: token, user: user })
                     resolve(resp)
                 })
                 .catch(err => {
-                    commit('auth_error')
-                    localStorage.removeItem('token')
+                    console.log(err)
+                    // localStorage.removeItem('token')
                     reject(err)
                 })
         })
     },
-
     register({ commit }, user) {
         return new Promise((resolve, reject) => {
             commit('auth_request')
-            api.post('api/register', user)
-                // axios({ url: 'http://greyfoods.test/api/register', data: user, method: 'POST' })
+            axios.post('https://agrobays.greysoft.com.ng/api/register', user)
                 .then(resp => {
-                    const token = resp.data.data.token
-                    const user = resp.data.data.user
+                    console.log(resp.data.token);
+                    const token = resp.data.token
+                    const user = resp.data.response.user
+                    // console.log(token);
 
                     localStorage.setItem('token', token)
                     localStorage.setItem('userdet', JSON.stringify(user))
+                    // // console.log(localStorage.getItem('token'));
                     axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
-                    commit('auth_success', { token: token, user: user })
+                    commit('auth_success', { token,user })
                     resolve(resp)
                 })
                 .catch(err => {
-                    commit('auth_error', err)
-                    localStorage.removeItem('token')
+                    console.log(err)
+                    // localStorage.removeItem('token')
                     reject(err)
                 })
         })
     },
+
+    async getFruits({ commit }, token) {
+        console.log(token.token)
+        console.log(token)
+        const tokenB = token.token
+        let resp = await api.get('/fruitbay', {
+            headers:{
+                'Authorization': 'Bearer ' + tokenB
+            }
+        })
+        // .catch((err) => console.log('error'))
+        console.log(resp.data.response.items.data)
+        // console.log(resp.data)
+
+        const respData = resp.data.response.items.data
+        // const respData = resp.data.data
+        commit('Fruits', { respData})
+    },
+
+    async getCategories({ commit }, token) {
+        console.log(token.token)
+        console.log(token)
+        const tokenB = token.token
+        let resp = await api.get('/fruitbay/categories', {
+            headers:{
+                'Authorization': 'Bearer ' + tokenB
+            }
+        })
+        // .catch((err) => console.log('error'))
+        // console.log(resp.data.response.items.data)
+        console.log(resp.data.response.items)
+
+        const respData = resp.data.response.items
+        // const respData = resp.data.data
+        commit('Categories', { respData})
+    },
+
+    // deleteBoard({commit}, id){
+    //     console.log(id)
+    //     const idd = id.id
+    //     console.log(idd)
+    //     commit('Boarddelete', { id})
+    // },
+
+    // addBoard({commit}, data){
+    //     console.log(data)
+    //     commit('addBoard', {data})
+    // },
+
+    
+
+    
 
     logout({ commit }) {
         return new Promise((resolve, reject) => {
             commit('logout')
             localStorage.removeItem('token')
-            localStorage.removeItem('det')
+            localStorage.removeItem('newPrice')
             localStorage.removeItem('userdet')
-                // localStorage.removeItem('plate')
+            // let newAr = []
+            // console.log(JSON.parse(localStorage.getItem('vuex').Cart))
+            let cart = JSON.parse(localStorage.getItem('vuex'));
+            cart.Cart.cart = []
+            localStorage.setItem('vuex', [])
+            localStorage.removeItem('vuex')
+
+            // localStorage.removeItem('vuex') 
+            // localStorage.removeItem('newPrice')   
+            localStorage.clear() 
+                        // localStorage.removeItem('plate')
+            // localStorage.removeItem('plate')
             delete axios.defaults.headers.common['Authorization']
             resolve()
-        })
-    },
-
-    mealD({ commit }, payload) {
-        console.log(payload);
-        commit('setMeal', payload)
-    },
-
-    topping({ commit }, payload) {
-        console.log(payload);
-        commit('set_topping', payload)
-    },
-
-    addOrder({ commit }, payload) {
-        console.log(payload);
-        commit('plate', payload)
-    },
-
-    menu({ commit }, menus) {
-        return new Promise((resolve, reject) => {
-            commit('menus', payload)
-            api.post('api/menu', menus)
-                // axios({ url: 'http://greyfoods.test/api/menu', data: menus, method: 'POst' })
-                .then(resp => {
-                    const menus = resp.data.data.menus
-
-                    localStorage.setItem('menus', menus)
-                    commit('menu_success', { menus: menus })
-                    resolve(resp)
-                })
-                .catch(err => {
-                    commit('menu_error', err)
-                    localStorage.removeItem('menus')
-                    reject(err)
-                })
-        })
-    },
-
-    createOrder({ commit }, order) {
-        return new Promise((resolve, reject) => {
-            commit('order_request')
-            api.post('api/place/order', order)
-                // axios({ url: 'http://greyfoods.test/api/place/order', data: order, method: 'POST' })
-                .then(resp => {
-                    console.log(resp);
-                    const msg = resp.data.data.token
-                    console.log(msg);
-
-                    commit('order_status')
-                    resolve(resp)
-                })
-                .catch(err => {
-                    commit('order_error')
-                    reject(err)
-                })
         })
     },
 }

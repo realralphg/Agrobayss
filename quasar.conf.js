@@ -42,7 +42,7 @@ module.exports = configure(function (ctx) {
     build: {
       vueRouterMode: "hash", // available values: 'hash', 'history'
        env: {
-          baseURL: 'http://greyfoods.nesitek.com/',
+          baseURL: 'https://agrobays.greysoft.com.ng/api',
         },
 
       // transpile: false,

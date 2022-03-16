@@ -1,110 +1,214 @@
 <template>
-  <div class="wrapper container">
-    <div class="heeder">
-      <q-btn to="/" class="icon">
-        <i class="ri-arrow-left-line text-primary text-weight bold"></i>
-      </q-btn>
-
-      <div class="logo">
-        <img src="/images/lo.png" alt="" />
-      </div>
-    </div>
-    <h1 class="text-h3 text-left text-weight-bold text-primary q-my-lg q-pa-md">
-      Register
-    </h1>
+  <div class="wrapper container q-pt-xl">
+    <!-- <p class="top-text text-left text-weight-bold text-primary">
+      Sign Up
+    </p> -->
 
     <div class="eight q-my-lg">
-      <h3>OR</h3>
+      <h3> <span class="login-text">Sign up with</span> </h3>
     </div>
-    <div class="input-wrap">
-      <label class="text-primary" for="">Full Name</label> <br />
 
-      <div class="input">
-        <i class="far q-mr-md fa-user text-primary"></i>
-
-        <input type="text" placeholder="eg. Ademola" />
-      </div>
+    <div class="text-red q-mb-sm">
+      {{ resp }}
     </div>
-    <div class="input-wrap">
-      <label class="text-primary" for="">Email</label> <br />
+    <form @submit.prevent="register">
+      <p v-if="errors.length" class="text-white q-mb-xl resp bg-primary q-px-lg q-py-md">
+        {{errors[0]}}
+      </p>
+      <div class="input-wrap">
+            <label class="text-primary" for="">Username</label> <br />
 
-      <div class="input">
-        <i class="ri-mail-line q-mr-md text-primary"></i>
+            <div class="input">
+                <i class="far q-mr-md fa-user text-primary"></i>
 
-        <input type="email" placeholder="Enter your email" />
+                <input v-model="form.name" type="text" placeholder= "Enter your username eg. ademola" />
+            </div>
+        </div>
+        <div class="input-wrap">
+            <label class="text-primary" for="">Email</label> <br />
+
+            <div class="input">
+                <i class="ri-mail-line q-mr-md text-primary"></i>
+
+                <input type="email" v-model="form.email" placeholder="Enter your email" />
+            </div>
+        </div>
+        <div class="input-wrap">
+            <label class="text-primary" for="">Password</label> <br />
+
+            <div class="input">
+               <i class="ri-lock-line q-mr-md text-primary"></i>
+
+               <input type="password" v-model="form.password" placeholder="Enter your password" />
+            </div>
+      
+        </div>
+
+        <div class="input-wrap">
+            <label class="text-primary" for="">Password Confirmation</label> <br />
+
+            <div class="input">
+               <i class="ri-lock-line q-mr-md text-primary"></i>
+
+               <input type="password" v-model="form.password_confirmation" placeholder="re-enter your password" />
+            </div>
+      
+        </div>
+
+        <!-- <div class="input-wrap">
+            <label class="text-primary" for="">Confirm Password</label> <br />
+
+            <div class="input">
+                <i class="ri-lock-line q-mr-md text-primary"></i>
+
+                <input type="password" v-model="form.password_confirmation" placeholder="Confirm your password" />
+            </div>
+      
+        </div> -->
+        
+        
+        
+    
+    
+      <div class="button q-py-xl q-mt-lg text-center">
+        <!-- <button class="btn">Register</button> -->
+        <q-btn type="submit" class="btn q-py-sm q-px-xl">Register</q-btn>
       </div>
-    </div>
-    <div class="input-wrap">
-      <label class="text-primary" for="">Password</label> <br />
+        
+    </form>
+    
 
-      <div class="input">
-        <i class="ri-lock-line q-mr-md text-primary"></i>
-
-        <input type="text" placeholder="Enter your password" />
-      </div>
-    </div>
-    <div class="input-wrap">
-      <label class="text-primary" for="">Phone Number</label> <br />
-
-      <div class="input">
-        <i class="ri-phone-fill q-mr-md text-primary"></i>
-
-        <input type="text" placeholder="Enter your Phone Number" />
-      </div>
-    </div>
-    <div class="input-wrap">
-      <label class="text-primary" for="">Country</label> <br />
-
-      <div class="input">
-        <i class="ri-user-add-line q-mr-md text-primary"></i>
-
-        <select id="">
-          <option value="">Select your country</option>
-          <option value="Afganistan">Afghanistan</option>
-          <option value="Albania">Albania</option>
-          <option value="Algeria">Algeria</option>
-          <option value="American Samoa">American Samoa</option>
-          <option value="Andorra">Andorra</option>
-          <option value="Angola">Angola</option>
-          <option value="Anguilla">Anguilla</option>
-          <option value="Antigua & Barbuda">Antigua & Barbuda</option>
-          <option value="Argentina">Argentina</option>
-          <option value="Armenia">Armenia</option>
-          <option value="Aruba">Aruba</option>
-          <option value="Australia">Australia</option>
-          <option value="Austria">Austria</option>
-          <option value="Azerbaijan">Azerbaijan</option>
-          <option value="Bahamas">Bahamas</option>
-          <option value="Bahrain">Bahrain</option>
-        </select>
-      </div>
-
-      <div class="button text-center">
-        <button class="btn">Register</button>
-      </div>
-
-      <p class="text-center text-positive">
+      <p class="text-center q-pb-xl text-dark">
         Already have an account?
-        <q-btn to="/login" class="text-primary"> Login</q-btn>
+        <q-btn to="/login" flat class="text-primary"> Login</q-btn>
       </p>
     </div>
-  </div>
+  
 </template>
 
 <script>
-export default {};
+import { useQuasar, QSpinnerFacebook } from 'quasar'
+import { onBeforeUnmount } from 'vue'
+import { QSpinnerGears } from 'quasar'
+import { api } from 'boot/axios'
+import axios from 'axios'
+
+export default {
+  setup () {
+        
+    const $q = useQuasar()
+    let timer
+
+    onBeforeUnmount(() => {
+      if (timer !== void 0) {
+        clearTimeout(timer)
+        $q.loading.hide()
+      }
+    })
+
+    return {
+      showLoading () {
+        $q.loading.show({
+          spinner: QSpinnerFacebook,
+          spinnerColor: 'primary',
+          spinnerSize: 140,
+          backgroundColor: '#ca7c06',
+          message: 'Some important process is in progress. Hang on...',
+          messageColor: 'black'
+        })
+
+        // hiding in 3s
+        timer = setTimeout(() => {
+          $q.loading.hide()
+          timer = void 0
+        }, 3000)
+      },
+
+      onMainClick () {
+        console.log('Clicked on main button')
+      },
+
+      onItemClick () {
+        console.log('Clicked on an Item')
+      },
+    }
+  },
+    data(){
+         return {
+           resp: '',
+             form :{
+                name:'',
+                email: '',
+                password:'',
+                password_confirmation: ''
+                 
+             },
+             errors: [],
+         }
+    },
+     methods:{
+      //  async register(){
+      //       let resp = await axios.post('https://agrobays.greysoft.com.ng/api/register', this.form).catch(err=> console.log(err))
+      //       if(resp){
+      //         console.log(resp);
+      //         this.errors.push(resp.data.status)
+      //         setTimeout(()=>{
+      //           this.errors.pop()
+      //           // this.$router.push('/login')
+      //           this.$router.replace('/dashboard')
+                  
+      //         }, 3000)
+      //       }
+      //  },
+
+       register: function() {
+         let name = this.form.name
+         let email = this.form.email
+        let password = this.form.password
+        let password_confirmation = this.form.password_confirmation
+        this.showLoading()
+        this.$store.dispatch('register', { name,email,password,password_confirmation }).then(() =>{
+          this.showLoading()
+          this.resp = "User Registered Successfully"
+            this.$q.notify({
+            message: this.resp,
+            color: 'primary',
+          })
+           this.$router.replace('/dashboard')
+        }).catch(() => {
+            // console.log(this.$store);
+
+            const mesg = "Please Recheck Credentials"
+             this.errors.push(mesg)
+            setTimeout(()=>{
+                this.errors.pop()
+                // this.$router.push('/login')
+                  
+              }, 2000)
+          })
+      },
+}
+}
 </script>
 
 <style scoped>
+
+p{
+  margin-bottom: 4px;
+}
+
+.login-text{
+  margin-top: -10px;
+}
+
 .wrapper {
-  /* position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%); */
-  margin-top: 6rem;
+  width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-top: 7rem;
+
+  /* height: 100vh; */
 }
 
 .heeder {
@@ -167,22 +271,25 @@ select:focus {
 
 .btn {
   border: none;
-  background: linear-gradient(121.81deg, #2b945b 20.1%, #8bc34a 131.87%);
+  /* background: linear-gradient(121.81deg, #2b945b 20.1%, #8bc34a 131.87%); */
+  background-color: #fff;
   padding: 16px 24px 16px 24px;
   margin: 1rem;
-  border-radius: 8px;
-  color: #fff;
+  font-size: 1.3rem !important;
+  border-radius: 60px;
+  border: 1px solid #2b945b;
+  color: #2b945b;
   margin: 0.55rem 0;
-  width: 50%;
+  padding: 1rem;
+  width: 60%;
+  /* font-size: 1.6rem; */
 }
 
 .eight h3 {
   text-align: center;
-
-  text-transform: uppercase;
-  font-size: 26px;
+  font-size: 1rem;
   letter-spacing: 1px;
-
+  font-weight: bold;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   grid-template-rows: 16px 0;
@@ -194,13 +301,83 @@ select:focus {
   content: " ";
   display: block;
   border-bottom: 1px solid #ccc;
-  background-color: #f8f8f8;
+  /* background-color: #f8f8f8; */
 }
 
-@media (max-width: 400px) {
+.log{
+    display: grid;
+    /* grid-template-columns: repeat(2, 1fr); */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 2.5rem auto;
+}
+
+.log .wrapp{
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    width: 100%;
+    box-shadow: 18.587px 18.587px 37.1739px rgba(211, 209, 216, 0.25);
+    border-radius: 28.5px;
+    /* align-items: center; */
+    /* justify-content: center; */
+    padding: 0 1rem;
+    /* margin:0 1rem ; */
+}
+
+.log .wrapp i{
+    font-size: 2rem;
+}
+.log .wrapp img{
+    width: 20px;
+    height: 20px;
+}
+@media(max-width:500px){
+.log .wrapp p{
+    font-size: 11px;
+}
+
+}
+
+.ri-facebook-box-fill{
+    color: #4267B2;
+}
+
+
+.ri-google-fill{
+    color: #fbbc05;
+}
+
+.log .wrap p{
+    margin: 0 1rem ;
+}
+
+.flexx{
+    display: flex;
+    justify-content: space-between;
+}
+
+.q-tab{
+    width: 50% !important;
+}
+@media (max-width: 500px) {
   .input-wrap .input input:placeholder-shown,
   select {
     font-size: 14px;
   }
+  .log{
+
+    width: 100%;
+
+}
+.resp{
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 12px;
+}
 }
 </style>

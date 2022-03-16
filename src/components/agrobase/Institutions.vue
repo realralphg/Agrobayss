@@ -9,7 +9,7 @@
       </h2>
       <p class="text-center q-pb-lg q-mb-xl">
         We serve a plethora of instutions across Nigeria and our services are tailored 
-        objectively to meet the unique demands of every client we engage. From private to 
+        objectively to meet the unique demands of every client we engage. <br> From private to 
         public institutions, our services carries a mark of excellence and exclusivity.
       </p>
       <div class="cards">

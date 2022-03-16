@@ -1,68 +1,185 @@
 <template>
-  <div class="wrapper container">
-    <div class="heeder">
-      <q-btn to="/" class="icon">
-        <i class="ri-arrow-left-line text-primary text-weight bold"></i>
-      </q-btn>
-
-      <div class="logo">
-        <img src="/images/lo.png" alt="" />
-      </div>
-    </div>
-    <h1 class="text-h3 text-left text-weight-bold text-primary q-my-lg q-pa-md">
+  <div class="wrapper container q-pt-sm">
+    <!-- <p class="top-text text-left text-weight-bold text-primary">
       Login
-    </h1>
-    <p class="text-positive">Hello welcome to Agrobays</p>
+    </p> -->
+    <!-- <p class="text-dark">Welcome Back, Sirgappy</p> -->
 
+    <!-- This div needs to be changed -->
     <div class="eight q-my-lg">
-      <h3>OR</h3>
+      <h3> <span class="login-text">Login</span> </h3>
+
     </div>
-
-    <div class="input-wrap">
-      <label class="text-primary" for="">Email</label> <br />
-
-      <div class="input">
-        <i class="ri-mail-line q-mr-md text-primary"></i>
-
-        <input type="email" placeholder="Enter your email" />
-      </div>
+    
+    <!-- End of This div needs to be changed -->
+    <div class="text-red q-mb-sm">
+      <p v-if="errors.length" class="text-white q-mb-xl resp bg-primary q-px-lg q-py-md">
+        {{errors[0]}}
+      </p>
     </div>
-    <div class="input-wrap">
-      <label class="text-primary" for="">Password</label> <br />
+    <form @submit.prevent="login">
+        <div class="input-wrap">
+            <label class="text-primary" for="">Email</label> <br />
 
-      <div class="input">
-        <i class="ri-lock-line q-mr-md text-primary"></i>
+            <div class="input">
+                <i class="ri-mail-line q-mr-md text-primary"></i>
 
-        <input type="text" placeholder="Enter your password" />
-      </div>
-      <p class="text-primary forgot">Forgot password?</p>
-    </div>
+                <input v-model="form.email" type="email" placeholder="Enter your email" />
+            </div>
+        </div>
+        <div class="input-wrap">
+            <label class="text-primary" for="">Password</label> <br />
 
-    <div class="button text-center">
-      <q-btn to="/dashboard" class="btn">Login</q-btn>
-    </div>
+            <div class="input">
+               <i class="ri-lock-line q-mr-md text-primary"></i>
 
-    <p class="text-positive text-center">
-      Don’t have account?
-      <q-btn to="/register" class="text-primary"> Register</q-btn>
+                <input v-model="form.password" type="password" placeholder="Enter your password" />
+            </div>
+            <p class="text-primary forgot">Forgot password?</p>
+        </div>
+
+
+
+    
+    
+
+        <div class="button q-pt-xl text-center">
+            <q-btn type="submit" class="btn q-py-sm q-px-xl">Login</q-btn>
+        </div>
+    </form>
+
+    <p class="text-dark q-pb-xl text-center">
+      Don’t have an account?
+      <q-btn flat to="/register" class="text-primary"> Sign Up</q-btn>
     </p>
   </div>
 </template>
 
 <script>
-export default {};
+import { useQuasar, QSpinnerFacebook } from 'quasar'
+import { onBeforeUnmount } from 'vue'
+// import { useQuasar } from 'quasar'
+export default {
+  setup () {
+        
+    const $q = useQuasar()
+    let timer
+
+    onBeforeUnmount(() => {
+      if (timer !== void 0) {
+        clearTimeout(timer)
+        $q.loading.hide()
+      }
+    })
+
+    return {
+      showLoading () {
+        $q.loading.show({
+          spinner: QSpinnerFacebook,
+          spinnerColor: 'primary',
+          spinnerSize: 140,
+          backgroundColor: '#ca7c06',
+          message: 'Some important process is in progress. Hang on...',
+          messageColor: 'black'
+        })
+
+        // hiding in 3s
+        timer = setTimeout(() => {
+          $q.loading.hide()
+          timer = void 0
+        }, 3000)
+      },
+
+      onMainClick () {
+        console.log('Clicked on main button')
+      },
+
+      onItemClick () {
+        console.log('Clicked on an Item')
+      },
+    }
+  },
+    data(){
+         return {
+            resp: '',
+            errors: [],
+
+             form :{
+                 email: '',
+                 password:'',
+             }
+         }
+    },
+     methods:{
+       login: function() {
+        // console.log('working');
+        let email = this.form.email
+        let password = this.form.password
+
+
+        // console.log(email, password)
+        // this.$store.dispatch('login', { email, password })
+
+        this.showLoading()
+        this.$store.dispatch('login', { email, password }).then(() =>{
+          this.showLoading()
+          this.resp = "Logged In Successfully"
+            this.$q.notify({
+            message: this.resp,
+            color: 'primary',
+          })
+           this.$router.replace('/dashboard')
+        }).catch(() => {
+            // console.log(this.$store);
+
+            const mesg = "Please Recheck Credentials"
+             this.errors.push(mesg)
+            setTimeout(()=>{
+                this.errors.pop()
+                // this.$router.push('/login')
+                  
+              }, 2000)
+          })
+      },
+     },
+    //  mounted(){
+    //     console.log(this.$store);
+    //     console.log(JSON.parse(localStorage.getItem('vuex')));
+    //     let cart = JSON.parse(localStorage.getItem('vuex'));
+    //     console.log(cart.Cart.cart)
+    //     cart.Cart.cart = []
+    //     // while(cart.Cart.cart.length > 0) {
+    //     //  cart.Cart.cart.pop();
+    //     // }
+
+    //     console.log(cart.Cart.cart)
+    //     // localStorage.setItem('vuex', cart.Cart.cart)
+    //     localStorage.setItem('vuex', [])
+    // },
+}
 </script>
 
 <style scoped>
+p{
+  margin-bottom: 4px;
+}
+.login-text{
+  margin-top: -10px;
+}
+
+.top-text{
+  font-size: 1rem;
+}
+
 .wrapper {
-  /* position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%); */
-  margin-top: 6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: hidden;
+  height: 100vh;
+  padding-top: 5rem;
+  width: 70%;
+
 }
 
 .forgot {
@@ -128,22 +245,25 @@ select:focus {
 
 .btn {
   border: none;
-  background: linear-gradient(121.81deg, #2b945b 20.1%, #8bc34a 131.87%);
-  padding: 16px 24px 16px 24px;
+  /* background: linear-gradient(121.81deg, #2b945b 20.1%, #8bc34a 131.87%); */
+  background-color: #fff;
+  /* padding: 16px 24px 16px 24px; */
   margin: 1rem;
-  border-radius: 8px;
-  color: #fff;
+  border-radius: 60px;
+  border: 1px solid #2b945b;
+  font-size: 1.3rem !important;
+  color: #2b945b;
   margin: 0.55rem 0;
-  width: 50%;
+  padding: 1rem;
+  width: 60%;
+  /* font-size: 1.6rem; */
 }
 
 .eight h3 {
   text-align: center;
-
-  text-transform: uppercase;
-  font-size: 26px;
+  font-size: 1rem;
   letter-spacing: 1px;
-
+  font-weight: bold;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   grid-template-rows: 16px 0;
@@ -155,7 +275,70 @@ select:focus {
   content: " ";
   display: block;
   border-bottom: 1px solid #ccc;
-  background-color: #f8f8f8;
+  /* background-color: #f8f8f8; */
+}
+
+.log{
+    display: grid;
+    /* grid-template-columns: repeat(2, 1fr); */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 2.5rem auto;
+}
+
+.log .wrapp{
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    width: 100%;
+    box-shadow: 18.587px 18.587px 37.1739px rgba(211, 209, 216, 0.25);
+    border-radius: 28.5px;
+    /* align-items: center; */
+    /* justify-content: center; */
+    padding: 0 1rem;
+    /* margin:0 1rem ; */
+}
+/* .log .wrapp .go{
+  height: 30px;
+} */
+.log .wrapp i{
+    font-size: 2rem;
+}
+.log .wrapp img{
+    width: 20px;
+    height: 20px;
+}
+@media(max-width:500px){
+.log .wrapp p{
+    font-size: 11px;
+}
+
+}
+
+.ri-facebook-box-fill{
+    color: #4267B2;
+}
+
+
+.ri-google-fill{
+    color: #fbbc05;
+}
+
+.log .wrap p{
+    margin: 0 1rem ;
+}
+
+.flexx{
+    display: flex;
+    justify-content: space-between;
+}
+
+.q-tab{
+    width: 50% !important;
 }
 
 @media (max-width: 400px) {
@@ -163,5 +346,16 @@ select:focus {
   select {
     font-size: 14px;
   }
+  .log{
+
+    width: 100%;
+
+}
+
+.resp{
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 12px;
+}
 }
 </style>

@@ -23,9 +23,13 @@ button {
 }
 
 .q-tab__label {
-  font-size: 18px !important;
+  font-size: 13px;
   line-height: 1.715em;
   font-weight: 500;
+}
+
+.q-tab__content .q-tab__label{
+  font-size: 1.2rem;
 }
 
 body {
@@ -42,6 +46,21 @@ img {
 
 a {
   text-decoration: none;
+}
+.q-btn:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: inherit;
+  box-shadow: none;
+}
+
+.q-tab-panels {
+    background: transparent;
 }
 
 .flex {
@@ -102,7 +121,9 @@ li {
 .q-page-container {
   padding: 0 !important;
 }
-
+.q-drawer {
+  position: fixed !important;
+}
 
 .padd{
     padding: 4rem 1rem !important;

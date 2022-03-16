@@ -42,7 +42,7 @@
         <div style="font-size: 20px" class="text-body1 text-positive q-mt-lg">
           Book weekly delivery of the best
           <span class="text-primary text-bold q-mr-md"> Fruits & Veggies</span>    
-          <q-btn to="/fruits" class="text-secondary btn">Fruits & Veggies </q-btn>     
+          <q-btn to="/login" class="text-secondary btn">Fruits & Veggies </q-btn>     
         </div>           
       </div>         
     </div>

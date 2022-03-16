@@ -1,52 +1,57 @@
 <template>
   <div class="q-pa-md q-my-xl home">
-    <div class="row align-c text-c show container">
-      <div class="col-md-6 lef col-sm-12 col-xs-12">
-        <h2
-          style="font-size: 50px"
-          class="text-h3 q-my-lg text-weight-bold text-secondary"
-        >
-          Agrobays
-        </h2>
+    <div class="h">
 
-        <p style="font-size: 20px" class="text-body1 text-secondary q-mt-lg">
-          21st Century Agriculture. <br />
-          Exploring agriculture with technology and mechanization.
-        </p>
+      <div class="row align-c text-c show container">
+        <div class="col-md-6 lef col-sm-12 col-xs-12">
+          <h2
+            style="font-size: 70px"
+            class="text-h3 q-my-lg text-weight-bold text-secondary"
+          >
+            Agrobays
+          </h2>
 
-        <div class="input-email q-mt-lg">
-          <div class="input q-px-lg">
-            <input placeholder="Enter your email" type="text" />
-            <button class="text-secondary">Register</button>
+          <p style="font-size: 30px" class="text-body1 lead text-secondary q-mt-lg">
+            21st Century Agriculture. <br />
+            Exploring agriculture with technology and mechanization.
+          </p>
+
+          <div class="input-email q-mt-lg">
+            <div class="input q-px-lg">
+              <input placeholder="Enter your email" type="text" />
+              <button class="text-secondary">Register</button>
+            </div>
           </div>
         </div>
+          <!-- <div class="col col-md-6 col-sm-12 col-xs-12">
+            <img class="img" src="/images/group.png" />
+          </div> -->
       </div>
-      <!-- <div class="col col-md-6 col-sm-12 col-xs-12">
-        <img class="img" src="/images/group.png" />
-      </div> -->
-    </div>
 
-    <div class="boxes q-my-lg">
-      <div class="boxes-wrap container">
-        <q-btn class="btn3" to="/agrofoods"
-          >AgroFoods</q-btn
-        >
+      <div class="boxes q-my-lg">
+        <div class="boxes-wrap container">
+          <q-btn class="btn3" to="/agrofoods"
+            >AgroFoods</q-btn
+          >
 
-        <q-btn class="btn3" to="/agrofoods"
-          >AgroFarms</q-btn
-        >
+          <q-btn class="btn3" to="/agrofoods"
+            >AgroFarms</q-btn
+          >
 
-        <q-btn class="btn3" to="/agrofoods"
-          >AgroTech</q-btn
-        >
+          <q-btn class="btn3" to="/agrofoods"
+            >AgroTech</q-btn
+          >
 
-        <!-- <q-btn to="/agroinvest">
-          <div class="box">
-            <p>AgroInvest</p>
-          </div>
-        </q-btn> -->
+            <!-- <q-btn to="/agroinvest">
+              <div class="box">
+                <p>AgroInvest</p>
+              </div>
+            </q-btn> -->
+        </div>
       </div>
+    
     </div>
+    
 
     <!-- <div class="row">
       <div class="col">.col</div>
@@ -66,6 +71,18 @@ export default {};
   height: 100vh;
   background: url("/images/bay1.jpeg") center center/cover no-repeat;
   z-index: 1;
+
+}
+.lead{
+  line-height: 1.3;
+}
+
+.h{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  width: 90%;
 }
 
 .show {
@@ -200,6 +217,23 @@ h5 {
   .boxes-wrap .box {
     margin: 0.2rem;
   }
+  h2{
+    font-size: 40px !important;
+  }
+
+  p.lead{
+    font-size: 20px !important;
+  }
+
+  .btn3{
+  color:#fff;
+
+  border:1px solid #fff; 
+  padding: .35rem .75rem;
+  margin:  2rem 1rem;
+   -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+  transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+}
 }
 
 @media (max-width: 630px) {

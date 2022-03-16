@@ -1,7 +1,10 @@
 import { store } from 'quasar/wrappers'
 import { createStore } from 'vuex'
+import VuexPersistence from 'vuex-persist'
 
 import fruity from './fruity'
+import Cart from './cart'
+import foodstore from './foodstore'
 
 /*
  * If not building with SSR mode, you can
@@ -15,8 +18,18 @@ import fruity from './fruity'
 export default store(function (/* { ssrContext } */) {
   const Store = createStore({
     modules: {
-      fruity
+      fruity, Cart, foodstore
     },
+    plugins: [new VuexPersistence().plugin],
+    
+    // plugins: [
+    //   new VuexPersistence({
+    //     reducer: (state) => ({
+    //       cart: state.cart,
+    //     }),
+    //     // filter: (mutation) => mutation.type == 'mutateXcsrf'
+    //   }).plugin,
+    // ],
 
     // enable strict mode (adds overhead!)
     // for dev mode and --debug builds only

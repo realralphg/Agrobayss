@@ -9,7 +9,7 @@
       </h2>
       <p class="text-center q-pb-lg q-px-lg q-mb-xl">
         To deliver a community of modern agric and agribusiness enthusiasts, 
-        we have divided our operations into three main categories, under which all 
+        we have divided our operations into <br> three main categories, under which all 
         our operations are classsified.
       </p>
       <div class="cards">

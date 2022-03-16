@@ -53,7 +53,7 @@
           </div>
         </q-item> -->
 
-        <q-item clickable v-ripple>
+        <q-item @click="logout" clickable v-ripple>
           <div class="wrapp">
             <i class="ri-logout-box-r-fill text-primary"></i>
             <p class="q-ml-md">Logout</p>
@@ -84,6 +84,21 @@ export default {
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
       }
+    }
+  },
+  methods: {    
+    logout(){
+      console.log('hey')
+      localStorage.removeItem('token')
+      localStorage.removeItem('vuex')
+      this.$store.dispatch('logout')
+      .then(() => {
+        this.$q.notify({
+        message: 'Logout Successful',
+        color: 'primary',
+        avatar: 'https://image.shutterstock.com/image-vector/avatar-icon-on-black-round-600w-1167668266.jpg'})
+        this.$router.push('/login')
+      }) 
     }
   }
 }

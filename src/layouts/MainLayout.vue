@@ -309,6 +309,10 @@ export default {
   object-fit: contain;
 }
 
+a{
+  font-size: 2rem;
+}
+
 .login {
   clip-path: polygon(0 0, 100% 0%, 100% 100%, 26% 100%);
   padding: 1rem;

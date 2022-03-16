@@ -10,8 +10,7 @@ const routes = [
       { path: "/agrotech", component: () => import("pages/Agrotech.vue") },
       { path: "/login", component: () => import("src/pages/Login.vue") },
       { path: "/register", component: () => import("src/pages/Register.vue") },
-      { path: "/fruits", component: () => import("src/pages/Fruits.vue") },
-      { path: "/fruit", component: () => import("src/pages/Fruit.vue") },
+      // { path: "/fruit", component: () => import("src/pages/Fruit.vue") },
 
       // { path: "/dashboard", component: () => import("src/pages/Dashboard/Dashboard.vue") },
     ],
@@ -24,6 +23,11 @@ const routes = [
       { path: "/dashboard", component: () => import("src/pages/Dashboard/AccDash.vue") },
       { path: "/savings", component: () => import("src/pages/Dashboard/Saving.vue") },
       { path: "/new", component: () => import("src/pages/Dashboard/Newsaving.vue") },
+      { path: "/fruits", component: () => import("src/pages/Dashboard/Fruits.vue") },
+      { path: "/checkout", component: () => import("src/pages/Dashboard/Checkout.vue") },
+      { path: "/plans", component: () => import("src/pages/Dashboard/Plans.vue") },
+      { path: "/myplan", component: () => import("src/pages/Dashboard/Dash.vue") },
+      { path: "/foodbag", component: () => import("src/pages/Dashboard/Foodbag.vue") },
       // { path: "/bar", component: () => import("src/pages/Views/Bar.vue") },
 
     ],

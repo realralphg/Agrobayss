@@ -80,7 +80,7 @@ export default {
   /* margin: 1rem; */
   border-radius: 8px;
   /* margin: 0.55rem 0; */
-  font-size: 8px;
+  font-size: 12px;
   color: #fff;
 
 }
@@ -171,7 +171,7 @@ transition: all .3s
     text-align: center;
   }
 
-  .btn {
+  /* .btn {
     border: none;
     background: linear-gradient(121.81deg, #2b945b 20.1%, #8bc34a 131.87%);
     padding: 10px 14px 10px 14px;
@@ -179,6 +179,9 @@ transition: all .3s
     border-radius: 8px;
     margin: 0.55rem;
     font-size: 13px;
-  }
+  } */
+  .btns {
+  justify-content: center;
+}
 }
 </style>

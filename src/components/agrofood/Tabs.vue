@@ -90,6 +90,7 @@ export default {
 </script>
 
 <style scoped>
+
 .q-tab__label {
   font-size: 18px !important;
   line-height: 1.715em;
@@ -111,7 +112,7 @@ export default {
 .griid{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 5rem;
+  gap: 1rem;
   align-items: center;
 }
 
@@ -139,6 +140,16 @@ export default {
   .griid{
   grid-template-columns: 1fr;
 
+}
+
+.q-card {
+  min-height: 200px;
+
+}
+
+.griid img{
+  object-fit: contain;
+  width: 250px;
 }
 }
 </style>

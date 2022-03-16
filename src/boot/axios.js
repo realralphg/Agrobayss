@@ -1,5 +1,9 @@
 import { boot } from 'quasar/wrappers'
 import axios from 'axios'
+// if(localStorage.getItem('token')){
+//     let resp = await axios.get(`${process.env.baseURL}/account`)
+//     console.log(resp)
+// }
 
 const api = axios.create({
     baseURL: process.env.baseURL,
@@ -11,7 +15,7 @@ const api = axios.create({
     },
 })
 
-export default boot(({ app }) => {
+export default boot(({ app}) => {
     // for use inside Vue files (Options API) through this.$axios and this.$api
 
     app.config.globalProperties.$axios = axios

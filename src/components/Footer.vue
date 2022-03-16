@@ -4,7 +4,7 @@
       <div class="row footer-row">
         <div class="col-md-4 col-sm-12 col-xs-12 q-pt-md my-font-nav">
           <div class="text-body1">About</div>
-          <q-separator class="bg-secondary" style="width: 50%" />
+          <q-separator class="bg-secondary" style="width: 10%" />
           <div
             class="
               text-body2
@@ -96,7 +96,7 @@
         </div> -->
         <div class="col-md-4 col-sm-12 col-xs-12 q-pt-md my-font-nav">
           <div class="text-body1 my-font-montserrat-light">Social Media</div>
-          <q-separator class="bg-secondary" style="width: 50%" />
+          <q-separator class="bg-secondary" style="width: 10%" />
           <div class="text-body2 q-mt-md cursor-pointer">
             <a
               class="my-font-montserrat-light text-white text-center"
@@ -164,7 +164,7 @@
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 q-pt-md my-font-nav">
           <div class="text-body1 my-font-montserrat-light">Contact Info</div>
-          <q-separator class="bg-secondary" style="width: 50%" />
+          <q-separator class="bg-secondary" style="width: 10%" />
           <div class="text-body2 my-font-montserrat-light q-mt-md">
             #F6, Y.A. Ahmed House, Ahmadu Bello Way, Kaduna, Nigeria.
           </div>
