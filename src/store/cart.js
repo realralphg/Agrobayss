@@ -105,10 +105,11 @@ export default {
     //    localStorage.setItem('newA', newAa)
     
 
-        let  newPrice = parseInt(localStorage.getItem('newPrice'))
-        state.totalCash = newPrice - deletedItem
-        console.log(state.totalCash)
-        // console.log(state.totalCash - deletedItem)
+        let newPrice = parseInt(localStorage.getItem('newPrice'))
+        console.log(newPrice)
+        // state.totalCash = newPrice - deletedItem
+        // console.log(state.totalCash)
+        console.log(state.totalCash -= deletedItem)
 
         // console.log(parseInt(newPrice) - deletedItem)
     //    let  newPrice = parseInt(localStorage.getItem('newPrice')) - payload.fruit.fruit.qty  * parseInt(payload.fruit.fruit.fruit.price)
@@ -120,8 +121,14 @@ export default {
     //    })
 
     //    state.totalCash = newPrice - deletedItem
-       localStorage.setItem('newPrice', Math.abs(state.totalCash))
+    //    localStorage.setItem('newPrice', parseInt(Math.abs(state.totalCash)))
 
+        //  state.totalCash = newPrice
+        // state.totalCash -= deletedItem
+        // state.totalCash -= deletedItem
+        //  console.log(state.totalCash - deletedItem)
+        //  state.totalCash = state.totalCash - deletedItem
+        localStorage.setItem('newPrice', state.totalCash)
        let inde = state.cart.indexOf(payload.fruit.fruit.fruit);
        state.cart.splice(inde, 1)
     //    console.log(newCart)

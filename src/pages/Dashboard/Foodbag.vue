@@ -3,10 +3,10 @@
 <div class="wrapper">
     <!-- {{choosePlan}} -->
     <div class="hold">
-        <h2 class="text-primary">Foodbags</h2>
+        <h2 class="text-primary">{{choosePlan.plan.title}} Foodbags</h2>
         <small>Pick your favourite yummy combination</small>
     </div>
-
+    <!-- {{choosePlan.plan}} -->
 
 
     <div class="plan-wrap">
@@ -17,18 +17,31 @@
                    <p class="text-primary q-mt-lg">{{plan.description}}</p>
                 </div> -->
                 <div class="desc">
-                    <img class="foodb" src="/images/agrofood2.png" />
-                   <ul v-for="item in choosePlan.plan.food_bag[0].foods" :key="item.id" class="items">
-                       <li>
-                           <div class="item-wrap">
-                               <div class="hold">
-                                  <img class="item-img" :src="item.image_url" alt=""> 
-                                   <p class="text-primary">{{item.name}}</p>
-                                   <strong class="text-black">{{item.weight}}</strong>
-                               </div>  
-                           </div>
-                       </li>
-                   </ul>
+                    <!-- <div class="img">
+                        <q-btn>
+                    </div> -->
+                    <img class="foodb" :src="choosePlan.plan.image_url" />
+
+                    <div v-for="foodbag in choosePlan.plan.food_bag" :key="foodbag.id" class="goobag">
+                        <h5 class="text-primary q-pa-lg text-center">{{foodbag.title}}</h5>
+                        <ul>
+                            <li v-for="item in foodbag.foods" :key="item.id" class="items">
+                                <!-- <p>{{item.image_url}}</p> -->
+                                <div class="item-wrap">
+                                    <img class="item-img" :src="item.image_url" alt=""> 
+
+                                    <div class="hold">
+                                        <p class="text-primary">{{item.name}}</p>
+                                        <strong class="text-black">{{item.weight}}</strong>
+                                    </div>  
+                                </div>
+                            </li>
+
+                        </ul>
+                        <q-btn class="bg-primary q-py-sm q-px-lg q-ma-xl text-white" @click="choosebag(foodbag.id)">Choose Foodbag</q-btn>
+
+                    </div>
+                   
                 </div>
                 <!-- <q-btn @click="choosePlan(plan.id)" class="q-px-xl text-white bg-primary q-py-sm">Choose Plan</q-btn> -->
             </div>
@@ -51,9 +64,47 @@ import { useQuasar } from 'quasar'
 import { onBeforeUnmount } from 'vue'
 import { ref } from 'vue'
 export default {
+    setup () {
+    const leftDrawerOpen = ref(false)
+    const $q = useQuasar()
+    let timer
+
+    onBeforeUnmount(() => {
+      if (timer !== void 0) {
+        clearTimeout(timer)
+        $q.loading.hide()
+      }
+    })
+
+    return {
+      showLoading () {
+        $q.loading.show()
+
+        // hiding in 2s
+        timer = setTimeout(() => {
+          $q.loading.hide()
+          timer = void 0
+        }, 4000)
+      },
+    }},
     computed: {
     ...mapGetters(['choosePlan']),
+    ...mapGetters(['chooseBag']),
+    ...mapGetters(['msg']),
     },
+
+    methods:{
+        choosebag(id){
+            console.log(id)
+             this.$store.dispatch('chooseBag', {id}).then(()=>{
+                this.showLoading()
+                this.$q.notify({
+                message: this.msg,
+                color: 'primary',
+               })
+            })
+        }
+    }
 }
 </script>
 
@@ -112,20 +163,28 @@ p{
     width: 80px;
     height: 80px;
 } */
-
+.goobag{
+    width: 100%;
+}
 .desc{
     display: flex;
     align-items: center;
     /* justify-content: center; */
+    padding: 5rem 0;
 }
-
+.desc ul{
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+/* gap: 2rem; */
+}
 
 .desc ul li{
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     /* flex-direction: column; */
-    justify-content: center;
+    /* justify-content: center; */
     gap: 1rem;
+    width: 250px;
 }
 
 .desc img.foodb{
@@ -135,7 +194,7 @@ p{
 .desc .item-wrap{
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 1rem;
     margin: 0 1rem;
 }
 
@@ -150,7 +209,7 @@ position: relative;
 min-width: 100px;
 min-height: 100px;
 gap: 1rem;
-margin: 0 1rem;
+margin:1rem;
 padding: 1rem;
 }
 

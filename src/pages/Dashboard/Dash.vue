@@ -7,8 +7,9 @@
     </div>
 
     <!-- {{choosePlan}} -->
-    <!-- <h4>{{choosePlan.plan.food_bag[0].foods}}</h4>
-    <div >
+    <!-- {{progress}} -->
+    <h6 class="bg-grey-9 q-pa-md text-primary" v-if="chooseDays.days_left === 0">{{msg}}</h6>
+    <!-- <div >
         <img :src="item.image_url" alt="">
 
     </div> -->
@@ -51,7 +52,7 @@
             <q-circular-progress
           show-value
           font-size="20px"
-          :value="value"
+          :value='value'
           size="240px"
           :thickness="0.22"
           color="teal"
@@ -70,21 +71,21 @@
             <div class="twos q-pt-lg q-pb-sm">
                 <div class="lef">
                     <p class="text-info">Paid Days</p>
-                    <small class="text-primary text-weight-bold">{{choosePlan.paid_days}}</small>
+                    <small class="text-primary text-weight-bold">{{chooseDays? chooseDays.paid_days : choosePlan.paid_days}}</small>
                 </div>
                 <div class="righ">
                     <p class="text-info">Days Left</p>
-                    <small class="text-primary text-weight-bold">{{choosePlan.days_left}}</small>
+                    <small class="text-primary text-weight-bold">{{chooseDays? chooseDays.days_left : choosePlan.days_left}}</small>
                 </div>
             </div>
              <div class="twos q-pt-lg q-pb-sm">
                 <div class="bott q-mt-md">
-                    <p class="text-info">Duration</p>
+                    <p class="text-info">Plan Duration</p>
                     <small class="text-primary text-weight-bold">{{choosePlan.plan.duration}}</small>
                 </div>
                 <div class="righ">
                     <p class="text-info">Amount left to be paid</p>
-                    <small class="text-primary text-weight-bold">{{choosePlan.total_left}}</small>
+                    <small class="text-primary text-weight-bold">{{chooseDays? chooseDays.total_left : choosePlan.total_left}}</small>
                 </div>
             </div>
             
@@ -92,8 +93,26 @@
             <div class="btns">
                 <q-btn class="q-py-md q-mt-xl q-px-lg" @click="foodbag" color="primary" icon="visibility" label="View Foodbags" />
                 <q-btn class="q-py-md q-mt-xl q-px-lg" to="/savings" color="primary" icon="receipt" label="View Savings" />
-                <q-btn class="q-py-md q-mt-xl q-px-lg" color="primary" icon="add" label="New Savings" />         
+                <q-btn class="q-py-md q-mt-xl q-px-lg" @click="prompt = true"  color="primary" icon="add" label="New Savings" />         
             </div>
+
+
+            <q-dialog v-model="prompt" persistent>
+                <q-card style="min-width: 400px">
+                    <q-card-section>
+                    <div class="text-h6">How many days would you be saving for</div>
+                    </q-card-section>
+                    <q-card-section class="q-pt-none">
+                    <p>{{subError}}</p>
+                    <q-input type="number" dense v-model="days" @keyup.enter="prompt = false" />
+                    </q-card-section>
+
+                    <q-card-actions align="right" class="text-primary">
+                    <q-btn flat label="Cancel" v-close-popup />
+                    <q-btn @click="submitDays" flat label="Finish" />
+                    </q-card-actions>
+                </q-card>
+            </q-dialog>
 
 
         </div>
@@ -121,6 +140,9 @@ export default {
     })
 
     return {
+      prompt: ref(false),
+      days: ref(''),
+      subError:'',
       showLoading () {
         $q.loading.show()
 
@@ -140,10 +162,22 @@ export default {
     },
     computed: {
     ...mapGetters(['choosePlan']),
+    ...mapGetters(['chooseDays']),
+    ...mapGetters(['msg']),
+    ...mapGetters(['progress']),
         
   },
   created(){
-     this.value = Math.floor(1/ this.choosePlan.days_left * 100) 
+      let paidDays = this.chooseDays? this.chooseDays.paid_days : this.choosePlan.paid_days
+      let daysLeft = this.chooseDays? this.chooseDays.days_left : this.choosePlan.days_left
+      console.log(daysLeft)
+      if(daysLeft === 0){
+          this.value = 100
+      }else{
+          this.value = Math.floor((this.chooseDays? this.chooseDays.paid_days : this.choosePlan.paid_days)/(this.chooseDays? this.chooseDays.days_left : this.choosePlan.days_left) * 100) 
+      }
+    //   this.value = this.progress
+     
     //  Math.floor(this.value)
     },
 
@@ -151,6 +185,36 @@ export default {
         foodbag(){
             this.showLoading()
             this.$router.replace('/foodbag')
+        },
+        submitDays(){
+            const dayss = this.days
+            console.log('submitted')
+            if(dayss <= 0 ){
+                this.$q.notify({
+                message: 'You have to save for at least 1 day.',
+                color: 'primary',
+               })
+                this.prompt = true
+            } else if(dayss > (this.choosePlan.plan.duration - this.choosePlan.plan.paid_days)){
+                this.$q.notify({
+                message: `You cannot save for more than ${this.choosePlan.plan.duration} days.`,
+                color: 'primary',
+               })
+                // this.subError= `You cannot save for more than ${this.choosePlan.plan.duration} days.`
+                this.prompt = true
+            }else{
+                this.$store.dispatch('days', {dayss}).then(()=>{
+                this.showLoading()
+                this.$q.notify({
+                message: this.msg,
+                color: 'primary',
+               })
+            }).catch((err) => console.log(err))
+            this.days = ''
+            this.prompt = false
+            
+            }
+            
         }
     }
     

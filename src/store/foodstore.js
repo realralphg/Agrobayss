@@ -7,7 +7,10 @@ export default {
   state: {
     plans: null,
     choosePlan:null,
-    msg: ''
+    chooseBag:null,
+    chooseDays:null,
+    msg: '',
+    progress: null
   },
   getters: {
     plans(state) {
@@ -18,6 +21,16 @@ export default {
     },
      choosePlan(state) {
         return state.choosePlan
+    },
+
+     chooseBag(state) {
+        return state.chooseBag
+    },
+     chooseDays(state) {
+        return state.chooseDays
+    },
+     progress(state) {
+        return state.progress
     },
   },
   // Mutations
@@ -31,6 +44,17 @@ export default {
         console.log(payload.responseData,payload.respMsg)
         state.choosePlan = payload.responseData
         state.msg = payload.respMsg
+    },
+    chooseBag(state, payload){
+        console.log(payload.responseData,payload.respMsg)
+        state.chooseBag = payload.responseData
+        state.msg = payload.respMsg
+    },
+    chooseDays(state, payload){
+        console.log(payload.responseData,payload.respMsg)
+        state.chooseDays = payload.responseData
+        state.msg = payload.respMsg
+        state.progress = payload.responseData.paid_days / payload.responseData.days_left * 100
     }
   },
   // Actions
@@ -92,6 +116,49 @@ export default {
         const responseData = resp.data.response.data
         const respMsg = resp.data.message
         commit('choosePlan', {responseData,respMsg})
+
+    },
+    async chooseBag({ commit }, id) {
+        console.log(id.id)
+        // console.log(token)
+        const idd = id.id
+        // let resp = await api.post('account/savings/get-plans', {
+        //     headers:{
+        //         'Authorization': 'Bearer ' + tokenB
+        //     }
+        // })
+        const token = localStorage.getItem('token')
+        console.log(token)
+
+        let resp = await axios.post(`https://agrobays.greysoft.com.ng/api/account/savings/update-bag/${idd}`).catch(err=>console.log(err))
+        axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
+
+        console.log(resp)
+        const responseData = resp.data.response.data
+        const respMsg = resp.data.message
+        commit('chooseBag', {responseData,respMsg})
+
+    },
+
+    async days({ commit }, dayss) {
+        console.log(dayss.dayss)
+        // console.log(token)
+        const days = {days: dayss.dayss}
+        // let resp = await api.post('account/savings/get-plans', {
+        //     headers:{
+        //         'Authorization': 'Bearer ' + tokenB
+        //     }
+        // })
+        const token = localStorage.getItem('token')
+        console.log(token)
+
+        let resp = await axios.post(`https://agrobays.greysoft.com.ng/api/account/savings/subscription/deposit`, days).catch(err=>console.log(err))
+        axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
+
+        console.log(resp)
+        const responseData = resp.data.response.deposit
+        const respMsg = resp.data.message
+        commit('chooseDays', {responseData,respMsg})
 
     },
 
