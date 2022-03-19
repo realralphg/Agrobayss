@@ -17,10 +17,11 @@ const routes = [
   },
   {
     path: "/User",
+    name: "user",
     component: () => import("layouts/User.vue"),
     children: [
       { path: "/account", component: () => import("src/pages/Dashboard/Account.vue") },
-      { path: "/dashboard", component: () => import("src/pages/Dashboard/AccDash.vue") },
+      { path: "/dashboard", component: () => import("src/pages/Dashboard/AccDash.vue"), name: 'dashboard' },
       { path: "/savings", component: () => import("src/pages/Dashboard/Saving.vue") },
       { path: "/new", component: () => import("src/pages/Dashboard/Newsaving.vue") },
       { path: "/fruits", component: () => import("src/pages/Dashboard/Fruits.vue") },
@@ -28,6 +29,25 @@ const routes = [
       { path: "/plans", component: () => import("src/pages/Dashboard/Plans.vue") },
       { path: "/myplan", component: () => import("src/pages/Dashboard/Dash.vue") },
       { path: "/foodbag", component: () => import("src/pages/Dashboard/Foodbag.vue") },
+      // { path: "/bar", component: () => import("src/pages/Views/Bar.vue") },
+
+    ],
+  },
+  {
+    path: "/Admin",
+    name: "admin",
+    component: () => import("layouts/Admin.vue"),
+    children: [
+      { path: "/admin/account", component: () => import("src/pages/Dashboard/Account.vue") },
+      { path: "/admin/dashboard", component: () => import("src/pages/Dashboard/AccDash.vue"), name:'/admin/dashboard' },
+      { path: "/admin/categories", component: () => import("src/pages/Dashboard/Admin/FruitbayCategories.vue") },
+      { path: "/admin/item", component: () => import("src/pages/Dashboard/Admin/addFruitbayItems.vue") },
+      { path: "/admin/addfruit", component: () => import("src/pages/Dashboard/Admin/addFruit.vue") },
+      { path: "/admin/fruitbay", component: () => import("src/pages/Dashboard/Admin/Fruitbay.vue") },
+      { path: "/admin/foods", component: () => import("src/pages/Dashboard/Admin/Foods.vue") },
+      { path: "/admin/addsaving", component: () => import("src/pages/Dashboard/Admin/addSaving.vue") },
+      { path: "/admin/savings", component: () => import("src/pages/Dashboard/Admin/SavingPlans.vue") },
+      { path: "/admin/foodbag", component: () => import("src/pages/Dashboard/Admin/Foodbags.vue") },
       // { path: "/bar", component: () => import("src/pages/Views/Bar.vue") },
 
     ],

@@ -32,6 +32,10 @@ button {
   font-size: 1.2rem;
 }
 
+.tabulator .tabulator-tableholder .tabulator-table {
+    width: 100%;
+}
+
 body {
   /* overflow-x: hidden; */
   font-size: 18px;

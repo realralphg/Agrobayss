@@ -7,6 +7,8 @@
         <small>Select food Plan and saving on the go!</small>
     </div>
 
+    <!-- <h6 class="bg-grey-9 q-pa-md text-primary">{{errmsg}}</h6> -->
+
 
 
     <div class="plan-wrap">
@@ -50,6 +52,7 @@
 <script>
 import axios from 'axios'
 import { api } from 'boot/axios'
+import { Dialog, Notify } from 'quasar'
 import {mapActions, mapGetters} from 'vuex'
 import { useQuasar } from 'quasar'
 import { onBeforeUnmount } from 'vue'
@@ -68,6 +71,7 @@ export default {
     })
 
     return {
+        errmsg: '',
       showLoading () {
         $q.loading.show()
 
@@ -91,6 +95,7 @@ export default {
             console.log(id)
             this.showLoading()
             this.$store.dispatch('choosePlan', {id}).then(()=>{
+                this.$store.dispatch('resetUserData')
                 this.showLoading()
                 this.$q.notify({
                 message: this.msg,
@@ -99,6 +104,17 @@ export default {
 
                this.$router.replace('/myplan')
 
+            }).catch(()=>{
+                Dialog.create({
+                class: `bg-primary text-white`,
+                ok: { color: 'white', 'text-color': 'primary' },
+                message: this.msg
+                })
+                this.showLoading()
+                this.$q.notify({
+                message: this.msg,
+                color: 'primary',
+               })
             })
         }
     },

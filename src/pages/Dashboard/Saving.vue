@@ -10,7 +10,11 @@
 
         </q-btn>
     </div>
-    <Table/>
+    <div class="table">
+        <FruitbayCategory/>
+        <Tabulator/>
+    </div>
+    
 
 </div>
   
@@ -18,10 +22,11 @@
 
 <script>
 
-import Table from '../../components/dashboard/Table.vue'
+import FruitbayCategory from '../../components/dashboard/FruitbayCategory.vue'
+import Tabulator from '../../components/dashboard/Tabulator.vue'
 export default {
 components:{
-    Table
+    FruitbayCategory, Tabulator
 }
 }
 </script>

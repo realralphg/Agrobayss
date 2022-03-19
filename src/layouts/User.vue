@@ -15,6 +15,7 @@
 
 
       <div class="nav-hold">
+       <!-- {{userDetails.subscription}} -->
             <nav class="nav">
                 <!-- {{cartShop.Cart.cart}} -->
                 <!-- {{addition}} -->
@@ -146,24 +147,25 @@
             <p class="q-ml-md text-white">Dashboard</p>
           </div>
         </q-item>
-
-        <q-item clickable v-ripple to="myplan">
-          <div class="wrapp">
-            <i class="ri-building-fill text-white"></i>
-            <p class="q-ml-md text-white">Add Plans</p>
-          </div>
-        </q-item>
         <q-item clickable v-ripple to="plans">
           <div class="wrapp">
             <i class="ri-building-fill text-white"></i>
-            <p class="q-ml-md text-white">Plans</p>
+            <p class="q-ml-md text-white">Choose Plans</p>
           </div>
         </q-item>
+
+        <q-item clickable v-ripple :to="userDetails.subscription ? '/myplan' : '/plans'">
+          <div class="wrapp">
+            <i class="ri-building-fill text-white"></i>
+            <p class="q-ml-md text-white"> Active Plans</p>
+          </div>
+        </q-item>
+        
 
         <q-item clickable v-ripple to="savings">
           <div class="wrapp">
             <i class="ri-building-fill text-white"></i>
-            <p class="q-ml-md text-white">Savings</p>
+            <p class="q-ml-md text-white">Food Savings</p>
           </div>
         </q-item>
 
@@ -172,6 +174,12 @@
           <div class="wrapp">
             <i class="ri-exchange-dollar-fill text-white"></i>
             <p class="q-ml-md text-white">Fruits / Veggies</p>
+          </div>
+        </q-item>
+        <q-item clickable v-ripple to="savings">
+          <div class="wrapp">
+            <i class="ri-building-fill text-white"></i>
+            <p class="q-ml-md text-white">Transactions</p>
           </div>
         </q-item>
 
@@ -276,8 +284,11 @@ export default {
     ...mapGetters(['fruits']),
     ...mapGetters(['categories', 'fru', 'cashh']),
     ...mapGetters(['isLoggedIn']),
-        
+    ...mapGetters(['choosePlan']),  
   },
+  mounted(){
+    console.log(this.choosePlan)
+  }
 }
 </script>
 

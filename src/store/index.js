@@ -5,6 +5,7 @@ import VuexPersistence from 'vuex-persist'
 import fruity from './fruity'
 import Cart from './cart'
 import foodstore from './foodstore'
+import admin from './admin'
 
 /*
  * If not building with SSR mode, you can
@@ -18,7 +19,7 @@ import foodstore from './foodstore'
 export default store(function (/* { ssrContext } */) {
   const Store = createStore({
     modules: {
-      fruity, Cart, foodstore
+      fruity, Cart, foodstore, admin
     },
     plugins: [new VuexPersistence().plugin],
     

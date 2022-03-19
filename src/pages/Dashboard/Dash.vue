@@ -6,9 +6,10 @@
         <p class="text-primary text-weight-bold">{{userDetails.name}}</p>
     </div>
 
-    <!-- {{choosePlan}} -->
+    <!-- {{chooseDays}} -->
+    <!-- {{userPlan}} -->
     <!-- {{progress}} -->
-    <h6 class="bg-grey-9 q-pa-md text-primary" v-if="chooseDays.days_left === 0">{{msg}}</h6>
+    <!-- <h6 class="bg-grey-9 q-pa-md text-primary" v-if="chooseDays.days_left === 0">{{msg}}</h6> -->
     <!-- <div >
         <img :src="item.image_url" alt="">
 
@@ -67,25 +68,31 @@
         </div>
 
         <div class="main-right">
-            <h3 class="text-primary text-weight-bold">{{choosePlan.plan.title}}</h3>
+
+            <h3 class="text-primary text-weight-bold">{{userPlan.plan.title}}</h3>
             <div class="twos q-pt-lg q-pb-sm">
                 <div class="lef">
                     <p class="text-info">Paid Days</p>
-                    <small class="text-primary text-weight-bold">{{chooseDays? chooseDays.paid_days : choosePlan.paid_days}}</small>
+                    <!-- <small class="text-primary text-weight-bold">{{chooseDays ? chooseDays.paid_days : choosePlan.paid_days}}</small> -->
+                    <small class="text-primary text-weight-bold">{{userPlan.paid_days}}</small>
                 </div>
                 <div class="righ">
                     <p class="text-info">Days Left</p>
-                    <small class="text-primary text-weight-bold">{{chooseDays? chooseDays.days_left : choosePlan.days_left}}</small>
+                    <!-- <small class="text-primary text-weight-bold">{{chooseDays ? chooseDays.days_left : choosePlan.days_left}}</small> -->
+                    <small class="text-primary text-weight-bold">{{userPlan.days_left}}</small>
                 </div>
             </div>
              <div class="twos q-pt-lg q-pb-sm">
                 <div class="bott q-mt-md">
                     <p class="text-info">Plan Duration</p>
-                    <small class="text-primary text-weight-bold">{{choosePlan.plan.duration}}</small>
+                    <small class="text-primary text-weight-bold">{{userPlan.plan.duration}}</small>
                 </div>
                 <div class="righ">
                     <p class="text-info">Amount left to be paid</p>
-                    <small class="text-primary text-weight-bold">{{chooseDays? chooseDays.total_left : choosePlan.total_left}}</small>
+                    <!-- <small class="text-primary text-weight-bold">{{chooseDays ? chooseDays.total_left : choosePlan.total_left}}</small> -->
+                    <!-- <small class="text-primary text-weight-bold">{{chooseDays? chooseDays.total_left : choosePlan.total_left}}</small> -->
+                    <small class="text-primary text-weight-bold">{{userPlan.total_left}}</small>
+
                 </div>
             </div>
             
@@ -103,7 +110,7 @@
                     <div class="text-h6">How many days would you be saving for</div>
                     </q-card-section>
                     <q-card-section class="q-pt-none">
-                    <p>{{subError}}</p>
+                    <!-- <p>{{subError}}</p> -->
                     <q-input type="number" dense v-model="days" @keyup.enter="prompt = false" />
                     </q-card-section>
 
@@ -140,6 +147,7 @@ export default {
     })
 
     return {
+        userPlan : null,
       prompt: ref(false),
       days: ref(''),
       subError:'',
@@ -156,8 +164,7 @@ export default {
     data(){
         return{
             userDetails: JSON.parse(localStorage.getItem('userdet')),
-            value: 0
-
+            value: 0,
         }
     },
     computed: {
@@ -165,16 +172,20 @@ export default {
     ...mapGetters(['chooseDays']),
     ...mapGetters(['msg']),
     ...mapGetters(['progress']),
+    ...mapGetters(['useer']),
         
   },
   created(){
-      let paidDays = this.chooseDays? this.chooseDays.paid_days : this.choosePlan.paid_days
-      let daysLeft = this.chooseDays? this.chooseDays.days_left : this.choosePlan.days_left
-      console.log(daysLeft)
+      this.userPlan = this.chooseDays || this.choosePlan || this.useer.subscription
+    //   let paidDays = this.chooseDays? this.chooseDays.paid_days : this.choosePlan.paid_days
+      let paidDays = this.userPlan.paid_days
+      let daysLeft = this.userPlan.days_left
+    //   let daysLeft = this.chooseDays? this.chooseDays.days_left : this.choosePlan.days_left
+    //   console.log(daysLeft)
       if(daysLeft === 0){
           this.value = 100
       }else{
-          this.value = Math.floor((this.chooseDays? this.chooseDays.paid_days : this.choosePlan.paid_days)/(this.chooseDays? this.chooseDays.days_left : this.choosePlan.days_left) * 100) 
+          this.value = Math.floor(paidDays/daysLeft * 100) 
       }
     //   this.value = this.progress
      
@@ -195,9 +206,9 @@ export default {
                 color: 'primary',
                })
                 this.prompt = true
-            } else if(dayss > (this.choosePlan.plan.duration - this.choosePlan.plan.paid_days)){
+            } else if(dayss > (this.userPlan.plan.duration - this.userPlan.plan.paid_days)){
                 this.$q.notify({
-                message: `You cannot save for more than ${this.choosePlan.plan.duration} days.`,
+                message: `You cannot save for more than ${this.userPlan.plan.duration} days.`,
                 color: 'primary',
                })
                 // this.subError= `You cannot save for more than ${this.choosePlan.plan.duration} days.`
@@ -209,6 +220,9 @@ export default {
                 message: this.msg,
                 color: 'primary',
                })
+               setTimeout(function () {
+                location.reload(true)
+                }, 1500)
             }).catch((err) => console.log(err))
             this.days = ''
             this.prompt = false
@@ -216,6 +230,13 @@ export default {
             }
             
         }
+    },
+    mounted(){
+    //     if(!this.choosePlan){
+    //     this.$router.replace('/plans')
+    // }
+    console.log(this.choosePlan)
+        console.log(this.$store)
     }
     
 }

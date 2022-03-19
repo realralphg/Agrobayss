@@ -33,9 +33,11 @@ export default route(function({ store, ssrContext }) {
     })
 
     Router.beforeEach((to, from, next) => {
-        // console.log(store);
-        if (to.matched.some(record => record.meta.requireAuth) && !store.getters.isLoggedIn) {
-            next({ name: 'login', query: { next: to.fullPath } })
+        console.log(to.matched[0].name, store.getters.useer.role, to);
+        if (store.getters.useer && store.getters.useer.role === 'user' && to.matched[0].name === 'admin') {
+            next({ name: 'dashboard', query: { next: '/dashboard' } })
+        } else if (store.getters.useer && store.getters.useer.role === 'admin' && to.matched[0].name === 'user') {
+            next({ name: '/admin/dashboard', query: { next: '/admin/dashboard'} })
         } else if (to.matched.some(record => record.meta.requireGuest) && store.getters.isLoggedIn) {
             next({ name: 'dashboard', query: { next: to.fullPath } })
         } else {

@@ -53,6 +53,11 @@ const mutations = {
         console.log(payload)
         state.categoriesData = payload.respData
     },
+
+    resetUserData( state, payload){
+        console.log(payload)
+        state.user = payload
+    },
     logout(state) {
         state.status = ''
         state.token = ''
@@ -146,6 +151,12 @@ const actions = {
         const respData = resp.data.response.items
         // const respData = resp.data.data
         commit('Categories', { respData})
+    },
+    async resetUserData({ commit }) {
+        console.log('reset user data')
+        let resp = await api.get('/account')
+        const user = resp.data.response.user
+        commit('resetUserData', user)
     },
 
     // deleteBoard({commit}, id){

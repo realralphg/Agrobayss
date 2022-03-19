@@ -5,13 +5,16 @@ import axios from 'axios'
 //     console.log(resp)
 // }
 
+var token = localStorage.getItem('token')
+
 const api = axios.create({
     baseURL: process.env.baseURL,
     headers: {
         'X-Requested-With': 'XMLHttpRequest',
         'Access-Control-Allow-Origin': '*',
         'Accept': 'application/json',
-	    'Content-Type': 'application/json; charset=utf-8'
+	    'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Bearer ' + token
     },
 })
 
